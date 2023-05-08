@@ -45,9 +45,110 @@ paths:
                       type: integer
                     name:
                       type: string
+                    description:
+                      type: text
+                    photo:
+                      type: string
+                    price:
+                      type: decimal
+                    user_id:
+                      type: integer
                   required:
                   - id
                   - name
+                  - description
+                  - photo
+                  - price
+                  - user_id
+  "/boats":
+      post:
+        summary: Create a new boat
+        tags:
+        - Boats
+        parameters: []
+        responses:
+          '201':
+            description: Created
+          '400':
+            description: Bad Request
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: text
+                  photo:
+                    type: string
+                  price:
+                    type: decimal
+                  user_id:
+                    type: integer
+                required:
+                - name
+                - description
+                - photo
+                - price
+                - user_id
+  "/:user_id/reservations.json":
+    get:
+      summary: Retrieves reservations of a user
+      tags:
+        - Reservations
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id: { type: integer }
+                    city: { type: string }
+                    pick_up: { type: date }
+                    return_date: { type: date }
+                    user_id: { type: integer }
+                    boat_id: { type: integer }
+                  required:
+                  - id
+                  - city
+                  - pick_up
+                  - return_date
+                  - user_id
+                  - boat_id
+  "/:user_id/reservations":
+    post:
+      summary: Create a reservation of a user
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city: { type: string }
+                pick_up: { type: date }
+                return_date: { type: date }
+                user_id: { type: integer }
+                boat_id: { type: integer }
+              required:
+              - city
+              - pick_up
+              - return_date
+              - user_id
+              - boat_id
 servers:
 - url: https://{defaultHost}
   variables:
