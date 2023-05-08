@@ -1,0 +1,55 @@
+---
+openapi: 3.0.1
+info:
+  title: SailingSpot API V1
+  version: v1
+paths:
+  "/users.json":
+    get:
+      summary: Retrieves a list of all users
+      tags:
+        - Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                  required:
+                  - id
+                  - name
+  "/boats.json":
+    get:
+      summary: Retrieves a list of all boats
+      tags:
+        - Boats
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                  required:
+                  - id
+                  - name
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
