@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :show] do
-        resources :boats, only: [:index, :show] do 
-          resources :reservations, only: [:index]
-        end
+        resources :boats, only: [:index, :show]
+        resources :reservations, only: [:index]
       end
     end
   end
