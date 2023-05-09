@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { dipslayReserveData } from "../../actions/reservation";
+import { displayReserveData } from "../../actions/reservation";
 
 const initialState = {
   reserve: [],
@@ -11,16 +11,16 @@ const reservationSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [dipslayReserveData.pending]: (state) => {
+    [displayReserveData.pending]: (state) => {
       const isPending = state;
       isPending.state = 'Pending'
     },
-    [dispatchEvent.fulfilled]: (state, action) => {
+    [displayReserveData.fulfilled]: (state, action) => {
       const isFulfilled = state;
       isFulfilled.state = 'Fulfilled';
       isFulfilled.reservations = action.payload;
     },
-    [dispatchEvent.fulfilled]: (state) => {
+    [displayReserveData.fulfilled]: (state) => {
       const isRejected = state;
       isRejected.state = 'Rejected';
     }

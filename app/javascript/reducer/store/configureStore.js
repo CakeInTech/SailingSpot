@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import boatSlice from "../boat/boatSlice";
-import reservationSlice from "../boat/reservationSlice";
+import reservationSlice from "../reservation/reserveSlice";
 
 const store = configureStore({
     reducer: {
