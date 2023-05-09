@@ -15,7 +15,7 @@ export const addReserve = createAsyncThunk(ADD_RESERVE, async (reserve) => {
   return reserve;
 });
 
-export const diplayReserve = createAsyncThunk(DISPLAY_RESERVE, async (thunkAPI) => {
+export const dipslayReserveData = createAsyncThunk(DISPLAY_RESERVE, async (thunkAPI) => {
   try {
     const response = await axios.get(reserve_url);
     console.log(response);
