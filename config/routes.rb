@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  mount Rswag::Ui::Engine => '/api-docs'
-  mount Rswag::Api::Engine => '/api-docs'
+  mount Rswag::Ui::Engine => '/api'
+  mount Rswag::Api::Engine => '/api'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :show] do
-        resources :boats, only: [:index, :show]
         resources :reservations, only: [:index]
       end
+      resources :boats, only: [:index, :show]
     end
   end
 end
