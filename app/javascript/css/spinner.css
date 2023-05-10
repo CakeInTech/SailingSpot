@@ -1,0 +1,53 @@
+/* spinner.css */
+.spinner {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+  }
+
+  .spinner-outer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    animation: spinner-outer 1.2s linear infinite;
+  }
+
+  .spinner-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+    border-top-color: transparent;
+    animation: spinner-inner 1.2s ease-in-out infinite;
+  }
+
+  @keyframes spinner-outer {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spinner-inner {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+    50% {
+      transform: scale(0.5);
+    }
+  }
