@@ -1,0 +1,400 @@
+---
+openapi: 3.0.1
+info:
+  description: "SailingSpot is a web and mobile application that helps sailing enthusiasts find the best spots for sailing and fun. The SailingSpot API provides programmatic access to the application's features, allowing developers to build their own applications or integrate SailingSpot data with their existing systems. Developers can interact with the SailingSpot API using RESTful calls over HTTP, and responses are returned in JSON format."
+  title: SailingSpot API V1
+  version: "1.0"
+basePath: "/v1"
+tags: [
+  {
+    name: "boat",
+    description: "Everything about your Boats",
+  },
+  {
+    name: "reservation",
+    description: "Access to SailingSpot Reservations"
+  },
+  {
+    name: "user",
+    description: "Operations about user",
+  }
+]
+schemes: [
+  "https",
+  "http"
+]
+paths:
+  "/api/v1/users":
+    get:
+      summary: Retrieves a list of all users
+      tags:
+        - user
+      produces: application/json
+      parameters: []
+      responses:
+        '200': {
+          description: User retrieve successfully!,
+          headers: {},
+          schema: {
+            $ref: "#/definitions/User"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: User not found
+  "/api/v1/boats":
+    get: 
+      summary: Retrieve a list of all boats
+      tags:
+        - boat
+      produces: application/json
+      parameters: []
+      responses:
+        '200': {
+          description: Boats retrieve successfully!,
+          headers: {},
+          schema: {
+            $ref: "#/definitions/Boat"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: Boat not found
+
+    post: 
+      summary: Create a new boat
+      tags:
+        - boat
+      consumes: application/json
+      produces: application/json
+      parameters: [
+        {
+          name: body,
+          in: body,
+          required: true,
+          description: Provide boats information,
+          schema: {
+            type: object,
+            properties: {
+              name: { type: string },
+              description: { type: string },
+              model: { type: string },
+              photo: { type: string },
+              price: { type: number, format: double },
+              user_id: { type: integer },
+            }
+          }
+        },
+      ]
+      responses:
+        '200': {
+          description: Boat created successfully!,
+          schema: {
+            $ref: "#/definitions/Boat"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: Boat not found
+  "/api/v1/boats/{id}":
+      get:
+        summary: Retrieve selected boat information
+        tags:
+        - boat
+        produces: application/json
+        parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        responses:
+          '200': {
+            description: Boat retrieve successfully!,
+            schema: {
+              $ref: "#/definitions/Boat"
+            }
+          }
+          '400':
+            description: Bad Request
+          '404':
+            description: Boat not found
+  
+      put:
+        summary: Update selected boat information
+        tags:
+        - boat
+        consumes: application/json
+        produces: application/json
+        parameters:
+          [
+            {
+              name: id,
+              in: path,
+              required: true,
+              description: Numeric Boat ID required,
+              type: integer,
+            },
+            {
+              name: body,
+              in: body,
+              required: true,
+              description: Provide boats information,
+              schema: {
+                type: object,
+                properties: {
+                  name: { type: string },
+                  description: { type: string },
+                  model: { type: string },
+                  photo: { type: string },
+                  price: { type: number, format: double },
+                  user_id: { type: integer },
+                }
+              }
+            },
+          ]
+        responses:
+          '200': {
+            description: Boat updated successfully!,
+            schema: {
+              $ref: "#/definitions/Boat"
+            }
+          }
+          '400':
+            description: Bad Request
+          '404':
+            description: Boat not found
+  
+  "/api/v1/users/{user_id}/reservations":
+    get:
+      summary: Retrieve a list of reservations of a user
+      tags:
+        - reservation
+      produces: application/json
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        type: integer
+      responses:
+        '200': {
+          description: Reservations are retrieved successfully!,
+          schema: {
+            $ref: "#/definitions/Reservation"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: Reservation not found
+    post:
+      summary: Create new reservation for a user
+      tags:
+        - reservation
+      consumes: application/json
+      produces: application/json
+      parameters:
+        [
+          {
+            name: user_id,
+            in: path,
+            required: true,
+            type: integer,
+          },
+          {
+            name: body,
+            in: body,
+            required: true,
+            description: Provide reservation information,
+            schema: {
+              type: object,
+              properties: {
+                city: { type: string },
+                pick_up: { type: string, format: date_time },
+                return_date: { type: string, format: date_time },
+                user_id: { type: integer },
+                boat_id: { type: integer },
+              }
+            }
+          },
+        ]
+      responses:
+        '200': {
+          description: Reservation created successfully!,
+          schema: {
+            $ref: "#/definitions/Reservation"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: Reservation not found
+  "/api/v1/users/{user_id}/reservations/{id}":
+    get:
+      summary: Retrieve selected reservation information 
+      tags:
+        - reservation
+      produces: application/json
+      parameters:
+        [
+          {
+            name: user_id,
+            in: path,
+            required: true,
+            type: integer,
+          },
+          {
+            name: id,
+            in: path,
+            required: true,
+            type: integer,
+          },
+        ]
+      responses:
+        '200': {
+          description: Reservation retrieves successfully!,
+          schema: {
+            $ref: "#/definitions/Reservation"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: Reservation not found
+
+    put:
+      summary: Update selected reservation information
+      tags:
+        - reservation
+      produces: application/json
+      parameters:
+        [
+          {
+            name: user_id,
+            in: path,
+            required: true,
+            type: integer,
+          },
+          {
+            name: id,
+            in: path,
+            required: true,
+            type: integer,
+          },
+          {
+            name: body,
+            in: body,
+            required: true,
+            description: Provide reservation information,
+            schema: {
+              type: object,
+              properties: {
+                city: { type: string },
+                pick_up: { type: string, format: date_time },
+                return_date: { type: string, format: date_time },
+                user_id: { type: integer },
+                boat_id: { type: integer },
+              }
+            }
+          },
+        ]
+      responses:
+        '200': {
+          description: Update reservation successfully!,
+          schema: {
+            $ref: "#/definitions/Reservation"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: Reservation not found
+  "/api/v1/user/login": 
+    get: 
+      tags: 
+      - user
+      summary: "Logs user into the system"
+      description: ""
+      produces: application/json
+      parameters: [
+        {
+          name: "username",
+          in: "query",
+          description: "The user name for login",
+          required: true,
+          type: string
+        },
+        {
+          name: password,
+          in: query,
+          description: "The password for login in clear text",
+          required: true,
+          type: string
+        }
+      ]
+      responses: 
+      "200": {
+        description: "successful operation",
+        headers: {},
+        schema: {
+          type: "string"
+        }
+      }
+      "400": 
+        description: "Invalid username/password supplied"
+
+  "/api/v1/user/logout": 
+    get: 
+      tags: 
+      - user
+      summary: "Logs out current logged in user session"
+      description: ""
+      produces: application/json
+      parameters: []
+      responses: 
+        default: 
+          description: "successful operation"
+        
+definitions:
+  {
+    User:
+      {
+        type: object,
+        properties: { id: { type: integer }, name: { type: string } },
+        xml: {
+          name: "User"
+        }
+      },
+    Boat:
+      {
+        type: object,
+        properties:
+          {
+            id: { type: integer },
+            name: { type: string },
+            description: { type: string },
+            model: { type: string },
+            photo: { type: string },
+            price: { type: number, format: double },
+            user_id: { type: integer },
+          },
+      },
+    Reservation:
+      {
+        type: object,
+        properties:
+          {
+            id: { type: integer },
+            city: { type: string },
+            pick_up: { type: string, format: date_time },
+            return_date: { type: string, format: date_time },
+            user_id: { type: integer },
+            boat_id: { type: integer },
+          },
+      },
+  }
+servers:
+  - url: http://127.0.0.1:3000
