@@ -4,9 +4,18 @@ import Homepage from "./Homepage";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-    </Routes>
+   <div className="container-fluid px-0">
+     <div className="row">
+      <div className="col-2">
+        {/* Sidebar Component */}
+      </div>
+      <div className="col-10">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+        </Routes>
+      </div>
+     </div>
+   </div>
   )
 }
 
