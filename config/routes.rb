@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       resources :boats, only: [:index, :show]
     end
   end
+  get '*path', to: 'root#index', via: :all
 end

@@ -1,7 +1,8 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "./controllers"
-import * as bootstrap from "bootstrap"
+import "jquery"
+import "./scss/index.scss"
 
 import React from 'react';
 import ReactDOM from 'react-dom';
