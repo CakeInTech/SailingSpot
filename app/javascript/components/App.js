@@ -1,22 +1,25 @@
-import React from "react";
-import { Route, Routes } from 'react-router-dom'
-import Homepage from "./Homepage";
-// import Navbar from "./Navbar";
-import "../scss/app.scss";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './Sidebar';
+import HomePage from './Homepage';
+import Reserve from './Reserve';
+import MyReservations from './MyReservations';
+import AddBoat from './AddBoat'
+import DeleteBoat from './DeleteBoat';
 
 const App = () => {
-  return (
-   <div className="container-fluid px-0">
-     <div className="">
-        {/* <Navbar /> */}
-        <div className="home">
+    return (
+        <Router>
+          <Sidebar />
           <Routes>
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/reserve" element={<Reserve />} />
+            <Route path="/my-reservations" element={<MyReservations />} />
+            <Route path="/add-boat" element={<AddBoat />} />
+            <Route path="/delete-boat" element={<DeleteBoat />} />
           </Routes>
-        </div>
-     </div>
-   </div>
-  )
+        </Router>
+    )
 }
 
 export default App;
