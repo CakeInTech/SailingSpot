@@ -2,8 +2,7 @@
   "name": "app",
   "private": "true",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+    "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "@babel/core": "^7.21.8",
@@ -19,12 +18,14 @@
     "bootstrap-icons": "^1.10.5",
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.7.3",
+    "jquery": "^3.6.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.1",
     "redux-logger": "^3.0.6",
     "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2",
     "styled-components": "^6.0.0-rc.1",
     "webpack": "^5.82.0",
