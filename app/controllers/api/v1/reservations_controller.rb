@@ -4,11 +4,11 @@ class Api::V1::ReservationsController < ApplicationController
 
   def index
     reservations = Reservation.all
-    render json: { reservations: reservations }, status: :ok
+    render json: { reservations: }, status: :ok
   end
 
   def show
-    render json: {reservations: @reservation}, status: :ok
+    render json: { reservations: @reservation }, status: :ok
   end
 
   def new
