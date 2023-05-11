@@ -35,14 +35,14 @@ const addReservationReducer = (state = initialState, action) => {
   }
 };
 
-export const addReservation = (reservation) => async (dispatch) => {
+export const addReservation = (user_id, reservation) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
     }
   };
   const body = JSON.stringify(reservation);
-  await axios.post('/api/v1/boats', body, config)
+  await axios.post(`/api/v1/users/${user_id}/reservations`, body, config)
     .then(() => {
       dispatch(addReservationSuccess());
     })
