@@ -4,7 +4,7 @@ class Api::V1::BoatsController < ApplicationController
 
   def index
     boats = Boat.all
-    render json: {boats: boats}, each_serializer: BoatSerializer, status: :ok
+    render json: { boats: }, each_serializer: BoatSerializer, status: :ok
   end
 
   def show
