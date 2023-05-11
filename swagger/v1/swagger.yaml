@@ -69,25 +69,7 @@ paths:
         - boat
       consumes: application/json
       produces: application/json
-      parameters: [
-        {
-          name: body,
-          in: body,
-          required: true,
-          description: Provide boats information,
-          schema: {
-            type: object,
-            properties: {
-              name: { type: string },
-              description: { type: string },
-              model: { type: string },
-              photo: { type: string },
-              price: { type: number, format: double },
-              user_id: { type: integer },
-            }
-          }
-        },
-      ]
+      parameters: []
       responses:
         '200': {
           description: Boat created successfully!,
@@ -99,6 +81,20 @@ paths:
           description: Bad Request
         '404':
           description: Boat not found
+      requestBody:
+        content:
+          application/json:
+            schema: {
+              type: object,
+              properties: {
+                name: { type: string },
+                description: { type: string },
+                model: { type: string },
+                photo: { type: string },
+                price: { type: number },
+                user_id: { type: integer },
+              }
+            }
   "/api/v1/boats/{id}":
       get:
         summary: Retrieve selected boat information
@@ -138,23 +134,6 @@ paths:
               description: Numeric Boat ID required,
               type: integer,
             },
-            {
-              name: body,
-              in: body,
-              required: true,
-              description: Provide boats information,
-              schema: {
-                type: object,
-                properties: {
-                  name: { type: string },
-                  description: { type: string },
-                  model: { type: string },
-                  photo: { type: string },
-                  price: { type: number, format: double },
-                  user_id: { type: integer },
-                }
-              }
-            },
           ]
         responses:
           '200': {
@@ -167,6 +146,20 @@ paths:
             description: Bad Request
           '404':
             description: Boat not found
+        requestBody:
+          content:
+            application/json:
+              schema: {
+                type: object,
+                properties: {
+                  name: { type: string },
+                  description: { type: string },
+                  model: { type: string },
+                  photo: { type: string },
+                  price: { type: number, format: double },
+                  user_id: { type: integer },
+                }
+              }
   
   "/api/v1/users/{user_id}/reservations":
     get:
@@ -204,22 +197,6 @@ paths:
             required: true,
             type: integer,
           },
-          {
-            name: body,
-            in: body,
-            required: true,
-            description: Provide reservation information,
-            schema: {
-              type: object,
-              properties: {
-                city: { type: string },
-                pick_up: { type: string, format: date_time },
-                return_date: { type: string, format: date_time },
-                user_id: { type: integer },
-                boat_id: { type: integer },
-              }
-            }
-          },
         ]
       responses:
         '200': {
@@ -232,6 +209,19 @@ paths:
           description: Bad Request
         '404':
           description: Reservation not found
+      requestBody:
+        content:
+          application/json:
+            schema: {
+              type: object,
+              properties: {
+                city: { type: string },
+                pick_up: { type: string, format: date_time },
+                return_date: { type: string, format: date_time },
+                user_id: { type: integer },
+                boat_id: { type: integer },
+              }
+            }
   "/api/v1/users/{user_id}/reservations/{id}":
     get:
       summary: Retrieve selected reservation information 
@@ -264,7 +254,6 @@ paths:
           description: Bad Request
         '404':
           description: Reservation not found
-
     put:
       summary: Update selected reservation information
       tags:
@@ -284,22 +273,6 @@ paths:
             required: true,
             type: integer,
           },
-          {
-            name: body,
-            in: body,
-            required: true,
-            description: Provide reservation information,
-            schema: {
-              type: object,
-              properties: {
-                city: { type: string },
-                pick_up: { type: string, format: date_time },
-                return_date: { type: string, format: date_time },
-                user_id: { type: integer },
-                boat_id: { type: integer },
-              }
-            }
-          },
         ]
       responses:
         '200': {
@@ -312,6 +285,19 @@ paths:
           description: Bad Request
         '404':
           description: Reservation not found
+      requestBody:
+        content:
+          application/json:
+            schema: {
+              type: object,
+              properties: {
+                city: { type: string },
+                pick_up: { type: string, format: date_time },
+                return_date: { type: string, format: date_time },
+                user_id: { type: integer },
+                boat_id: { type: integer },
+              }
+            }
   "/api/v1/user/login": 
     get: 
       tags: 
@@ -338,7 +324,6 @@ paths:
       responses: 
       "200": {
         description: "successful operation",
-        headers: {},
         schema: {
           type: "string"
         }
@@ -378,7 +363,7 @@ definitions:
             description: { type: string },
             model: { type: string },
             photo: { type: string },
-            price: { type: number, format: double },
+            price: { type: number },
             user_id: { type: integer },
           },
       },

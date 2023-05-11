@@ -11,6 +11,10 @@ class Api::V1::BoatsController < ApplicationController
     render json: @boat, serializer: BoatSerializer, status: :ok
   end
 
+  def new
+    Boat.new
+  end
+
   def create
     boat = Boat.new(boat_params)
 
