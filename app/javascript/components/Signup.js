@@ -22,8 +22,6 @@ const SignUp = () => {
     }));
   };
 
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const {
@@ -38,43 +36,6 @@ const SignUp = () => {
     navigate('/welcome')
   }
 
-  const user = useSelector(userSelector)
-  console.log(user)
-
-  
-
-  
-
-  // useEffect(() => {
-  //   if(success) {
-  //     
-  //   }
-  // })
-
-
-  // const user = useSelector(state => state.signup.signupResponse);
-  // console.log(user)
-  // const dispatch = useDispatch();
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [password_confirmation, setPasswordConfirmation] = useState('');
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   axios.defaults.headers.post['Content-Type'] = 'application/json';
-
-  //   axios.post('/signup', { user: { name, email, password, password_confirmation }})
-    
-  //     .then((response) => {
-  //       const { user } = response.data;
-  //       dispatch({ type: 'SET_SIGNUP_RESPONSE', payload: user });
-  //       navigate('/welcome');
-  //     })
-  //     .catch((error) => {
-  //       setError(error.response.data.errors.full_messages.join(', '));
-  //     });
-  // };
 
   return (
     <form onSubmit={handleSubmit}>
