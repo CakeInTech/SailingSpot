@@ -27,7 +27,11 @@ const MyReservations = () => {
   return (
     <div>
       {reservations.map((reservation) => (
-      <h1>City Name: {reservation.id}</h1>
+        <div>
+          <h1>City Name: {reservation.city}</h1>
+          <h3>Pick Up: {reservation.pick_up}</h3>
+          <h3>Return Date: {reservation.return_date}</h3>
+        </div>
       ))}
     </div>
   );
