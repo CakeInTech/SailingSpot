@@ -1,47 +1,70 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import '../css/sidebar.css';
+import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import '../scss/sidebar.scss';
+import '../../../node_modules/boxicons/css/boxicons.min.css'
 
 const Sidebar = () => {
-  const navigate = useNavigate()
+  useEffect(() => {
+    const body = document.querySelector('body');
+    const sidebar = body.querySelector('nav');
+    const toggle = body.querySelector('.toggle');
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('close');
+    });
+
+  }, []);
 
   return (
-    <SideNav 
-      onSelect={(selected) => {
-        navigate(selected)
-      }}
-      className="mysidenav"
-    >
-      <SideNav.Toggle />
-      <SideNav.Nav defaultSelected="home">
-        <NavItem eventKey="/">
-          <NavIcon><i className='bi bi-house-door-fill' style={{ fontSize: "1.5em" }} /></NavIcon>
-          <NavText>Home</NavText>
-        </NavItem>
-        <NavItem eventKey="/reserve">
-          <NavIcon><i className='bi bi-building-fill-add' style={{ fontSize: "1.5em" }} /></NavIcon>
-          <NavText>Reserve</NavText>
-        </NavItem>
-        <NavItem eventKey="/my-reservations">
-          <NavIcon><i className='bi bi-view-list' style={{ fontSize: "1.5em" }} /></NavIcon>
-          <NavText>My reservations</NavText>
-        </NavItem>
-        <NavItem eventKey="/add-boat">
-          <NavIcon><i className='bi bi-plus-square-fill' style={{ fontSize: "1.5em" }} /></NavIcon>
-          <NavText>Add boat</NavText>
-        </NavItem>
-        <NavItem eventKey="/delete-boat">
-          <NavIcon><i className='bi bi-trash-fill' style={{ fontSize: "1.5em" }} /></NavIcon>
-          <NavText>Delete boat</NavText>
-        </NavItem>
-        <NavItem eventKey="/log-out">
-          <NavIcon><i className='bi bi-door-open-fill' style={{ fontSize: "1.5em" }} /></NavIcon>
-          <NavText>Log out</NavText>
-        </NavItem>
-      </SideNav.Nav>
-    </SideNav>
+    <nav className="sidebar">
+      <header>
+        <div className="image-text">
+          <span className="image">
+            {/* <img src="logo.png" alt=""> */}
+          </span>
+          <div className="text logo-text">
+            <span className="name">Sailing Spot</span>
+          </div>
+        </div>
+        <i className="bx bx-chevron-right toggle"></i>
+      </header>
+      <div className="menu-bar">
+        <div className="menu">
+          <ul className="menu-links">
+            <li className="nav-link">
+              <NavLink to="/" activeClassName="active">
+                <i className="bx bxs-home-alt-2 icon"></i>
+                <span className="text nav-text">Home</span>
+              </NavLink>
+            </li>
+            <li className="nav-link">
+              <NavLink to="/reserve" activeClassName="active">
+                <i className="bx bxs-book-content icon"></i>
+                <span className="text nav-text">Reservation</span>
+              </NavLink>
+            </li>
+            <li className="nav-link">
+              <NavLink to="/my-reservations" activeClassName="active">
+                <i className="bx bx-book-bookmark icon"></i>
+                <span className="text nav-text">My Reservation</span>
+              </NavLink>
+            </li>
+            <li className="nav-link">
+              <NavLink to="/add-boat" activeClassName="active">
+                <i className="bx bxs-add-to-queue icon"></i>
+                <span className="text nav-text">Add Boat</span>
+              </NavLink>
+            </li>
+            <li className="nav-link">
+              <NavLink to="/delete-boat" activeClassName="active">
+                <i className="bx bxs-message-alt-x icon"></i>
+                <span className="text nav-text">Delete Boat</span>
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 
