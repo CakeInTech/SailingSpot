@@ -25,8 +25,9 @@ const Reserve = () => {
 
   return (
     <div>
-      <form>
-        <div class="form-group">
+      <h1 className="text-center mt-5 border border-primary">Book a Test Ride</h1>
+      <form className="w-50 mx-auto">
+        <div className="form-group m-4">
           <label for="city">Enter city</label>
           <input
             type="text"
@@ -35,7 +36,7 @@ const Reserve = () => {
             placeholder="city"
           />
         </div>
-        <div class="form-group">
+        <div className="form-group m-4">
           <label for="pick-up">Pick-Up Date</label>
           <input
             type="date"
@@ -44,7 +45,7 @@ const Reserve = () => {
             placeholder="pick-up date"
           />
         </div>
-        <div class="form-group">
+        <div className="form-group m-4">
           <label for="return-date">Return Date</label>
           <input
             type="date"
