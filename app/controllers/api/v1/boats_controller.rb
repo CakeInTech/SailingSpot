@@ -1,20 +1,25 @@
 class Api::V1::BoatsController < ApplicationController
   before_action :set_boat, only: %i[show update]
+  skip_before_action :verify_authenticity_token
 
   def index
     boats = Boat.all
-    render json: boats, each_serializer: BoatSerializer, status: :ok
+    render json: { boats: }, each_serializer: BoatSerializer, status: :ok
   end
 
   def show
     render json: @boat, serializer: BoatSerializer, status: :ok
   end
 
+  def new
+    Boat.new
+  end
+
   def create
     boat = Boat.new(boat_params)
 
     if boat.save
-      render json: { message: 'Created' }, status: :created
+      render json: { message: 'Boat created successfully!' }, status: :created
     else
       render json: { errors: boat.errors.full_messages }, status: :unprocessable_entity
     end
@@ -35,6 +40,6 @@ class Api::V1::BoatsController < ApplicationController
   end
 
   def boat_params
-    params.require(:boat).permit(:name, :description, :photo, :price, :model)
+    params.require(:boat).permit(:name, :description, :photo, :price, :model, :user_id)
   end
 end
