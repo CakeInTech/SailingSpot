@@ -1,5 +1,5 @@
 class Api::V1::BoatsController < ApplicationController
-  before_action :set_boat, only: %i[show update]
+  before_action :set_boat, only: %i[show update destroy]
   skip_before_action :verify_authenticity_token
 
   def index
@@ -28,6 +28,14 @@ class Api::V1::BoatsController < ApplicationController
   def update
     if @boat.update(boat_params)
       render json: { message: 'Updated' }, status: :ok
+    else
+      render json: { errors: @boat.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @boat.destroy
+      render json: { message: 'Boat deleted successfully!' }, status: :ok
     else
       render json: { errors: @boat.errors.full_messages }, status: :unprocessable_entity
     end
