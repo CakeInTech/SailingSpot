@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  
+
   respond_to :json
 
   def create
@@ -9,8 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.save
       sign_in @user
       render json: @user
-      # sign_out @user
-
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
