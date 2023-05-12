@@ -55,9 +55,11 @@ gem 'rswag-api'
 gem 'rswag-ui'
 
 group :development, :test do
+  gem 'capybara'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 6.0', '>= 6.0.2'
+  gem 'selenium-webdriver'
   gem 'rswag-specs'
   gem 'shoulda-matchers', '~> 5.3'
 end
