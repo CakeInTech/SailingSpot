@@ -25,9 +25,7 @@ const Reserve = () => {
 
   return (
     <div>
-      {boats.map((boat) => (
-        <h1> {boat.name}</h1>
-      ))}
+      
     </div>
   )
 }
