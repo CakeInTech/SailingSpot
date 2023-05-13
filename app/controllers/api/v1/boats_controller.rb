@@ -40,6 +40,6 @@ class Api::V1::BoatsController < ApplicationController
   end
 
   def boat_params
-    params.require(:boat).permit(:name, :description, :photo, :price, :model, :user_id)
+    params.require(:boat).permit(:name, :description, :photo, :price, :model, :availability, :user_id)
   end
 end

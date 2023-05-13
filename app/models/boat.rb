@@ -1,6 +1,6 @@
 class Boat < ApplicationRecord
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   validates :name, presence: true
   validates :model, presence: true
