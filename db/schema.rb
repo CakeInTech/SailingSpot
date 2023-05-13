@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_09_175354) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "availability"
+    t.boolean "availability", default: true
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
