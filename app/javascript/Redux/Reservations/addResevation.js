@@ -35,7 +35,7 @@ const addReservationReducer = (state = initialState, action) => {
   }
 };
 
-export const addReservation = (user_id, reservation) => async (dispatch) => {
+export const addReservation = (reservation) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json'

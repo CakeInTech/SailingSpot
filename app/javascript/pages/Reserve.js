@@ -1,26 +1,38 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getBoats } from "../Redux/Boats/boatsReducer";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+// import { getBoats } from "../Redux/Boats/boatsReducer";
+import { addReservation } from "../Redux/Reservations/addResevation";
 
 const Reserve = () => {
+  const [city, setCity] = useState('')
+  const [pick_up, setPick_up] = useState('')
+  const [return_date, setReturn_date] = useState('')
   const dispatch = useDispatch();
-  const { boats, status, error } = useSelector((state) => state.boats);
-
-  useEffect(() => {
-    dispatch(getBoats());
-  }, [dispatch]);
-
-  if (status === "loading") {
-    return <div>Loading...</div>;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(city.trim() || pick_up.trim() || return_date.trim()){
+      const newReservation = {
+        city,
+        pick_up,
+        return_date
+      }
+      dispatch(addReservation(newReservation));
+      setCity('')
+      setPick_up('')
+      setReturn_date('')
+    }
+  };
+  const handleCity = e => {
+    e.preventDefault();
+    setCity(e.target.value);
   }
-
-  if (status === "failed") {
-    return (
-      <div>
-        Error:
-        {error}
-      </div>
-    );
+  const handlePickUp = e => {
+    e.preventDefault();
+    setPick_up(e.target.value);
+  }
+  const handleReturnDate = e => {
+    e.preventDefault();
+    setReturn_date(e.target.value);
   }
 
   return (
@@ -34,6 +46,9 @@ const Reserve = () => {
             className="form-control"
             id="city"
             placeholder="city"
+            name="city"
+            value={city}
+            onChange={handleCity}
           />
         </div>
         <div className="form-group m-4">
@@ -43,6 +58,9 @@ const Reserve = () => {
             className="form-control"
             id="pick-up"
             placeholder="pick-up date"
+            name="pick_up"
+            value={pick_up}
+            onChange={handlePickUp}
           />
         </div>
         <div className="form-group m-4">
@@ -51,10 +69,13 @@ const Reserve = () => {
             type="date"
             className="form-control"
             id="return-date"
-            placeholder="preturn-datee"
+            placeholder="return-date"
+            name="return_date"
+            value={return_date}
+            onChange={handleReturnDate}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary mt-4" onClick={handleSubmit}>
           Submit
         </button>
       </form>
