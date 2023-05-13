@@ -32,31 +32,31 @@ const Sidebar = () => {
         <div className="menu">
           <ul className="menu-links">
             <li className="nav-link">
-              <NavLink to="/" activeClassName="active">
+              <NavLink to="/" activeclassname="active">
                 <i className="bx bxs-home-alt-2 icon"></i>
                 <span className="text nav-text">Home</span>
               </NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/reserve" activeClassName="active">
+              <NavLink to="/reserve" activeclassname="active">
                 <i className="bx bxs-book-content icon"></i>
                 <span className="text nav-text">Reservation</span>
               </NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/my-reservations" activeClassName="active">
+              <NavLink to="/my-reservations" activeclassname="active">
                 <i className="bx bx-book-bookmark icon"></i>
                 <span className="text nav-text">My Reservation</span>
               </NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/add-boat" activeClassName="active">
+              <NavLink to="/add-boat" activeclassname="active">
                 <i className="bx bxs-add-to-queue icon"></i>
                 <span className="text nav-text">Add Boat</span>
               </NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/delete-boat" activeClassName="active">
+              <NavLink to="/delete-boat" activeclassname="active">
                 <i className="bx bxs-message-alt-x icon"></i>
                 <span className="text nav-text">Delete Boat</span>
               </NavLink>

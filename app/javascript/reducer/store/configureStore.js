@@ -4,7 +4,7 @@ import boatSlice from "../boat/boatSlice";
 
 const store = configureStore({
     reducer: {
-      boat: boatSlice,
+      boats: boatSlice,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 })
