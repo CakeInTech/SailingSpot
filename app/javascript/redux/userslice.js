@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
-const login = "/login";
+const login = "/signin";
 
 export const loginUser = createAsyncThunk(
   "user/login",
