@@ -8,13 +8,14 @@ import '../scss/signup.scss';
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     name: '',
     email: '',
     password: '',
     password_confirmation: ''
-  })
+  });
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -37,7 +38,8 @@ const SignUp = () => {
     ).then(() => {
       navigate('/');
     }).catch(error => {
-      const err = ('Registration failed with error:', error);
+      const err = 'Registration failed with error: check email format and password must match';
+      setErrorMessage(err);
     });
   }
 
@@ -46,6 +48,7 @@ const SignUp = () => {
     <div className='signup-container'>
       <h1>Create Account</h1>
       <form onSubmit={handleSubmit}>
+        {errorMessage && <p style={{color: 'red', fontSize: '0.8em'}}>{errorMessage}</p>}
         <label>
           Name:
           <input type="text" name="name" value={state.name} onChange={handleInputChange} required />
