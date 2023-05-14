@@ -2,8 +2,8 @@ class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
   def create
-    @user = User.find_by(email: params[:user][:email]) # find the user by email
-    if @user && @user.valid_password?(params[:user][:password]) # use the nested `user` key to access the email and password parameters
+    @user = User.find_by(email: params[:user][:email])
+    if @user&.valid_password?(params[:user][:password])
       sign_in @user
       render json: @user
     else
