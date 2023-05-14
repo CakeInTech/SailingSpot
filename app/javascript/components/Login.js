@@ -23,14 +23,14 @@ const Login = () => {
         password,
       })
     );
-    navigate("/welcome");
+    navigate("/");
   };
 
   
 
   return (
-    <div>
-    <h1>Login</h1>
+    <div className='signup-container'>
+    <h1>Login Account</h1>
     <form onSubmit={handleSubmit}>
     <label>
     Email:
