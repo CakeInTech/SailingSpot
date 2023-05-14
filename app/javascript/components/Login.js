@@ -7,6 +7,7 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,9 +23,13 @@ const Login = () => {
         email,
         password,
       })
-    );
-    navigate("/");
-  };
+      ).then(() => {
+        navigate('/');
+      }).catch(error => {
+        const err = 'Email or Password not correct';
+        setErrorMessage(err);
+      });
+    }
 
   
 
@@ -32,6 +37,7 @@ const Login = () => {
     <div className='signup-container'>
     <h1>Login Account</h1>
     <form onSubmit={handleSubmit}>
+    {errorMessage && <p style={{color: 'red', fontSize: '0.8em'}}>{errorMessage}</p>}
     <label>
     Email:
     <input
