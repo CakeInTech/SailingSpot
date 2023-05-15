@@ -24,7 +24,7 @@ boats = [
     description: 'Spacious 30 foot catamaran',
     model: 'Sunreef 80',
     price: 250,
-    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1683656870/Sailing%20Spot%20Images/green_boat_x9b0em.png',
+    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
     availability: true,
     user_id: 1
   },
@@ -33,7 +33,7 @@ boats = [
     description: 'Luxury motor yacht',
     model: 'Prestige 650',
     price: 1200,
-    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1683656870/Sailing%20Spot%20Images/green_boat_x9b0em.png',
+    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
     availability: true,
     user_id: 1
   },
@@ -42,7 +42,7 @@ boats = [
    description: '24 foot catamaran',
    model: 'Pattaras 240',
    price: 180,
-   photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1683656870/Sailing%20Spot%20Images/green_boat_x9b0em.png',
+   photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
    availability: true,
    user_id: 1
   },
@@ -51,7 +51,7 @@ boats = [
     description: 'Electric power boat',
     model: 'Duffy 28 EV',
     price: 320,
-    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1683656870/Sailing%20Spot%20Images/green_boat_x9b0em.png',
+    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
     availability: true,
     user_id: 1
   },
@@ -60,7 +60,7 @@ boats = [
     description: '35 foot sailboat',
     model: 'Catalina 360',
     price: 520,
-    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1683656870/Sailing%20Spot%20Images/green_boat_x9b0em.png',
+    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
     availability: false,
     user_id: 1
   }
