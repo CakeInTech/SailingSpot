@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         resources :reservations, only: [:index, :show, :new, :create, :edit, :update, :destroy]
       end
       resources :boats, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+      resources :authorization, only: [:index]
     end
   end
 
