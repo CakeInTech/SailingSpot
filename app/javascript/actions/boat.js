@@ -11,3 +11,14 @@ export const fetchBoatData = createAsyncThunk('fetchBoatData', async thunkAPI =>
         return thunkAPI.rejectWithValue(e.response.data)
     }
 });
+
+export const fetchDetailsData = createAsyncThunk(
+    'fetchDetailsData', async ({ boatsId }, thunkAPI) => {
+        try {
+            const response = await axios.get(`${baseUrl}/boats/${boatsId}`);
+            return response.data;
+        } catch {
+            return thunkAPI.rejectWithValue(e.response.data)
+        }
+    }
+)
