@@ -10,7 +10,7 @@ const initialState = {
 export const getAuthorization = createAsyncThunk('sailspot/authorization', async () => {
   const response = await axios.get('/api/v1/authorization');
   if (response.data) {
-    return response.data.authorization;
+    return response.data;
   }
   return [];
 });
