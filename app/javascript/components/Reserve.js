@@ -1,43 +1,30 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { addReservation } from "../Redux/Reservations/addResevation";
 
-const Reserve = ({ currentUser }) => {
+const Reserve = () => {
   const [city, setCity] = useState("");
   const [pick_up, setPick_up] = useState("");
   const [return_date, setReturn_date] = useState("");
-  const handleSubmit = async (data) => {
-    data.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:3000/api/v1/users/1/reservations", {
-          data: {
-            city: city,
-            pick_up: pick_up,
-            return_date: return_date,
-            user_id: currentUser.id, // User ID
-            boat_id: 1, // Boar ID
-          }
-        }
-      );
-      console.log(response.data);
-      // Handle successful response
-    } catch (error) {
-      console.error("Error adding user:", error);
-      // Handle error response
+  const { boat } = useSelector((state) => state.boat);
+  const { user } = useSelector((state) => state.user);
+  
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (city.trim() && pick_up.trim() && return_date.trim()) {
+      dispatch(addReservation(user.id, {
+        city,
+        pick_up,
+        return_date,
+        boat_id: boat.id,
+        user_id: user.id,
+      }));
+      setCity('');
+      setPick_up('');
+      setReturn_date('');
+    } else {
+      alert('Enter details');
     }
-  };
-
-  const handleCity = (e) => {
-    e.preventDefault();
-    setCity(e.target.value);
-  };
-  const handlePickUp = (e) => {
-    e.preventDefault();
-    setPick_up(e.target.value);
-  };
-  const handleReturnDate = (e) => {
-    e.preventDefault();
-    setReturn_date(e.target.value);
   };
 
   return (
@@ -55,7 +42,7 @@ const Reserve = ({ currentUser }) => {
             placeholder="city"
             name="city"
             value={city}
-            onChange={handleCity}
+            onChange = {(e) => setCity(e.target.value)}
           />
         </div>
         <div className="form-group m-4">
@@ -67,7 +54,7 @@ const Reserve = ({ currentUser }) => {
             placeholder="pick-up date"
             name="pick_up"
             value={pick_up}
-            onChange={handlePickUp}
+            onChange = {(e) => setPick_up(e.target.value)}
           />
         </div>
         <div className="form-group m-4">
@@ -79,7 +66,7 @@ const Reserve = ({ currentUser }) => {
             placeholder="return-date"
             name="return_date"
             value={return_date}
-            onChange={handleReturnDate}
+            onChange = {(e) => setReturn_date(e.target.value)}
           />
         </div>
         <button type="submit" className="btn btn-primary mt-4">

@@ -9,7 +9,7 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const { boats, status } = useSelector((state) => state.boats);
 
-  console.log("here we gooo", boats.boats, status);
+  console.log("here we gooo", boats, status);
 
   useEffect(() => {
     dispatch(getBoats());
@@ -18,7 +18,7 @@ const Homepage = () => {
   return (
     <section className="main-container">
       <h1 className="text-center">Boats for Rent</h1>
-      <p className="text-center sub-header">Choose your boat</p>
+      <p className="text-center sub-header">Choose your boats</p>
       <div className="dot"></div>
 
       <main className="row row-cols-1 row-cols-md-3 g-4">

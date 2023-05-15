@@ -5,9 +5,7 @@ import '../scss/myreservation.scss';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  const { reservations, status, error } = useSelector(
-    (state) => state.reservations
-  );
+  const { reservations, status, error } = useSelector((state) => state.reservations);
 
   useEffect(() => {
     dispatch(getReservations(1));
