@@ -1,11 +1,11 @@
 .container {
-  padding: 7.5rem 0.10rem;
+  padding: 7.5rem 0.1rem;
 }
 
 .boat-container {
   background-color: #fff;
   border-radius: 0.625rem;
-  box-shadow: 0rem 0rem 0.625rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
   padding: 1.25rem;
   margin-bottom: 1.25rem;
 }
@@ -41,11 +41,11 @@
     flex-basis: 70%;
 
     &.available {
-      color: #4CAF50;
+      color: #4caf50;
     }
 
     &.unavailable {
-      color: #F44336;
+      color: #f44336;
     }
   }
 }
@@ -58,7 +58,7 @@
   }
 
   .btn-primary {
-    background-color: #19A7CE;
-    border: 1px solid #19A7CE;
+    background-color: #19a7ce;
+    border: 1px solid #19a7ce;
   }
 }
