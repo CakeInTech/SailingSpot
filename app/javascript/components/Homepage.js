@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchBoatData } from "../actions/boat";
+import { getBoats } from "../Redux/Boats/boatsReducer";
 import Spinner from "./Spinner.js";
 import "../scss/homepage.scss";
 
@@ -12,7 +12,7 @@ const Homepage = () => {
   console.log("here we gooo", boats.boats, status);
 
   useEffect(() => {
-    dispatch(fetchBoatData());
+    dispatch(getBoats());
   }, [dispatch]);
 
   return (

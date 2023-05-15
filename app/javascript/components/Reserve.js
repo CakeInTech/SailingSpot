@@ -1,44 +1,51 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-// import { getBoats } from "../Redux/Boats/boatsReducer";
-import { addReservation } from "../Redux/Reservations/addResevation";
+import axios from "axios";
 
-const Reserve = () => {
-  const [city, setCity] = useState('')
-  const [pick_up, setPick_up] = useState('')
-  const [return_date, setReturn_date] = useState('')
-  const dispatch = useDispatch();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(city.trim() || pick_up.trim() || return_date.trim()){
-      const newReservation = {
-        city,
-        pick_up,
-        return_date
-      }
-      dispatch(addReservation(newReservation));
-      setCity('')
-      setPick_up('')
-      setReturn_date('')
+const Reserve = ({ currentUser }) => {
+  const [city, setCity] = useState("");
+  const [pick_up, setPick_up] = useState("");
+  const [return_date, setReturn_date] = useState("");
+  const handleSubmit = async (data) => {
+    data.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:3000/api/v1/users/1/reservations", {
+          data: {
+            city: city,
+            pick_up: pick_up,
+            return_date: return_date,
+            user_id: currentUser.id, // User ID
+            boat_id: 1, // Boar ID
+          }
+        }
+      );
+      console.log(response.data);
+      // Handle successful response
+    } catch (error) {
+      console.error("Error adding user:", error);
+      // Handle error response
     }
   };
-  const handleCity = e => {
+
+  const handleCity = (e) => {
     e.preventDefault();
     setCity(e.target.value);
-  }
-  const handlePickUp = e => {
+  };
+  const handlePickUp = (e) => {
     e.preventDefault();
     setPick_up(e.target.value);
-  }
-  const handleReturnDate = e => {
+  };
+  const handleReturnDate = (e) => {
     e.preventDefault();
     setReturn_date(e.target.value);
-  }
+  };
 
   return (
     <div>
-      <h1 className="text-center mt-5 border border-primary">Book a Test Ride</h1>
-      <form className="w-50 mx-auto">
+      <h1 className="text-center mt-5 border border-primary">
+        Book a Test Ride
+      </h1>
+      <form className="w-50 mx-auto" onSubmit={handleSubmit}>
         <div className="form-group m-4">
           <label for="city">Enter city</label>
           <input
@@ -75,7 +82,7 @@ const Reserve = () => {
             onChange={handleReturnDate}
           />
         </div>
-        <button type="submit" className="btn btn-primary mt-4" onClick={handleSubmit}>
+        <button type="submit" className="btn btn-primary mt-4">
           Submit
         </button>
       </form>

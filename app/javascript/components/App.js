@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../Redux/configureStore";
 import Sidebar from "./Sidebar";
-import HomePage from "../pages/Homepage";
-import Reserve from "../pages/Reserve";
-import MyReservations from "../pages/MyReservations";
-import AddBoat from "../pages/AddBoat";
-import DeleteBoat from "../pages/DeleteBoat";
+import HomePage from "./Homepage";
+import Reserve from "./Reserve";
+import MyReservations from "./MyReservations";
+import AddBoat from "./AddBoat";
+import DeleteBoat from "./DeleteBoat";
 
 export const App = () => {
   return (

@@ -1524,11 +1524,7 @@ autoprefixer@^9.8.6:
 
 axios@^1.4.0:
   version "1.4.0"
-<<<<<<< HEAD
-  resolved "https://registry.npmjs.org/axios/-/axios-1.4.0.tgz"
-=======
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.4.0.tgz#38a7bf1224cd308de271146038b551d725f0be1f"
->>>>>>> 12cf841a09c08d4129103648f68dde0695386a8a
   integrity sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==
   dependencies:
     follow-redirects "^1.15.0"
@@ -1777,11 +1773,7 @@ colorette@^2.0.14:
 
 combined-stream@^1.0.8:
   version "1.0.8"
-<<<<<<< HEAD
-  resolved "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz"
-=======
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
->>>>>>> 12cf841a09c08d4129103648f68dde0695386a8a
   integrity sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
   dependencies:
     delayed-stream "~1.0.0"
