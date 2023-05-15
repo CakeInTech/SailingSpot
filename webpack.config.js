@@ -7,6 +7,12 @@ module.exports = {
   entry: {
     application: './app/javascript/application.js',
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      usedExports: true,
+    },
+  },
   module: {
     rules: [
       {
@@ -19,12 +25,12 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
     ],
   },
