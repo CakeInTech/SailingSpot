@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch} from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import userslice, { registerUser, userSelector } from '../redux/userslice';
-import '../scss/signup.scss';
+import { registerUser } from '../../redux/userslice';
+import '../../scss/signup.scss';
 
 
 const SignUp = () => {
