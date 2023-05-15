@@ -16,16 +16,21 @@ const boatSlice = createSlice({
           ...state,
           status: 'loading',
         }))
-      .addCase(fetchBoatData.fulfilled, (state, action) => {
-        const isFulfilled = state;
-        isFulfilled.status = 'fulfilled';
-        isFulfilled.boats = action.payload;
-      })
-      .addCase(fetchBoatData.rejected, (state) => {
-        const isRejected = state;
-        isRejected.status = 'rejected';
-      });
+      .addCase(fetchBoatData.fulfilled, (state, action) => ({
+          ...state,
+          status: "fulfilled",
+          boats: action.payload
+      }))
+      .addCase(fetchBoatData.rejected, (state) => ({
+          ...state,
+          status: "rejected"
+      }));
     },
 });
+
+export const allBoats = (state) => state.boats.boats;
+export const allStatus = (state) => state.boats.status;
+
+console.log("Message from the redux",allBoats, allStatus)
 
 export default boatSlice.reducer;
