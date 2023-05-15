@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.signup-container h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.signup-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-container label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.signup-container label input {
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.signup-container label input:focus {
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+
+.signup-container button[type="submit"] {
+  background-color: #055160;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.signup-container p {
+  margin-top: 30px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.signup-container p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  /* Styles for desktop screens */
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    width: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    height: 79%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 540px;
+    margin: 15% auto;
+  }
+}

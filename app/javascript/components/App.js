@@ -7,7 +7,9 @@ import MyReservations from './MyReservations';
 import AddBoat from './AddBoat'
 import DeleteBoat from './DeleteBoat';
 import Details from './Details';
-import "../scss/app.scss"
+import Login from './user/Login';
+import SignUp from './user/Signup';
+import "../scss/app.scss";
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
               <Route path="/my-reservations" element={<MyReservations />} />
               <Route path="/add-boat" element={<AddBoat />} />
               <Route path="/delete-boat" element={<DeleteBoat />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
             </Routes>
         </div>
       </>

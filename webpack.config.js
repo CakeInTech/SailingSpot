@@ -1,11 +1,11 @@
-const path    = require("path")
-const webpack = require("webpack")
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  mode: "production",
-  devtool: "source-map",
+  mode: 'production', // production
+  devtool: 'source-map',
   entry: {
-    application: "./app/javascript/application.js"
+    application: './app/javascript/application.js',
   },
   optimization: {
     splitChunks: {
@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
@@ -38,6 +38,12 @@ module.exports = {
     filename: '[name].js',
     sourceMapFilename: '[file].map',
     path: path.resolve(__dirname, 'app/assets/builds'),
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      usedExports: true,
+    },
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
