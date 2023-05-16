@@ -1,0 +1,26 @@
+table {
+  border-collapse: collapse;
+  font-family: cursive;
+  font-size: 1.2rem;
+}
+
+.reservation {
+  width: 80vw;
+  color: #fff;
+  font-size: 1.2rem;
+  background-color: rgba(248, 213, 213, 0.73);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.tItem {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #080708;
+}
+
+.reserveHeader {
+  font-size: 38px;
+  font-weight: 700;
+  color: #03045e;
+}

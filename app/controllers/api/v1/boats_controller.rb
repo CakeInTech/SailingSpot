@@ -1,6 +1,5 @@
 class Api::V1::BoatsController < ApplicationController
   before_action :set_boat, only: %i[show update]
-  skip_before_action :verify_authenticity_token
 
   def index
     boats = Boat.all

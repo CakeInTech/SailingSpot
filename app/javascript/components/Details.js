@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { fetchDetailsData } from "../actions/boat";
-import { allBoatsId, allStatus } from "../reducer/boat/detailSlice";
+import { fetchDetailsData } from "../Redux/Boats/detailSlice";
+import { allBoatsId, allStatus } from "../Redux/Boats/detailSlice";
 import Spinner from "./Spinner";
 import "../scss/details.scss";
 

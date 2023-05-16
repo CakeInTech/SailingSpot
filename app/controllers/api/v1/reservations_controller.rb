@@ -1,6 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update]
-  skip_before_action :verify_authenticity_token
 
   def index
     reservations = Reservation.all
@@ -17,6 +16,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.new(reservation_params)
+    reservation.user_id = current_user.id
 
     if reservation.save
       render json: { message: 'Reservation created successfully!' }, status: :created

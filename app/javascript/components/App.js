@@ -1,19 +1,23 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import HomePage from './Homepage';
-import Reserve from './Reserve';
-import MyReservations from './MyReservations';
-import AddBoat from './AddBoat'
-import DeleteBoat from './DeleteBoat';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "../Redux/configureStore";
+import Sidebar from "./Sidebar";
+import HomePage from "./Homepage";
 import Details from './Details';
+import Reserve from "./Reserve";
+import MyReservations from "./MyReservations";
+import AddBoat from "./AddBoat";
+import DeleteBoat from "./DeleteBoat";
 import Login from './user/Login';
 import SignUp from './user/Signup';
 import "../scss/app.scss";
 
-const App = () => {
+export const App = () => {
   return (
-    <>
+
+    <Provider store={store}>
+      <Router>
         <Sidebar />
         <div className='home'>
             <Routes>
@@ -27,8 +31,7 @@ const App = () => {
               <Route path="/signup" element={<SignUp />} />
             </Routes>
         </div>
-      </>
-  );
-};
-
-export default App;
+      </Router>
+    </Provider>
+  )
+}
