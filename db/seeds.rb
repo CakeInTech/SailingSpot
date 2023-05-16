@@ -6,10 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create(name: "Beta User", email: "betauser@example.com", password: "123456")
-# Create an array of sample names
-names = %w[Alice Bob Charlie David Emily Frank Grace Hannah Isaac James]
-reservations = %w[Nairobi 2023-04-14 2023-04-16]
+
 
 # Loop through the names array and create a new user record for each name
 names.each { |name| User.create(name: name) }

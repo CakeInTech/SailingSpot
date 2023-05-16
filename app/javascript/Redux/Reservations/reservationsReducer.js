@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-export const getReservations = createAsyncThunk('sailspot/reservations', async (user_id) => {
+export const getReservations = createAsyncThunk('sailspot/reservations', async () => {
   const response = await axios.get(`/api/v1/users/${user_id}/reservations`);
   if (response.data) {
     return response.data.reservations;
