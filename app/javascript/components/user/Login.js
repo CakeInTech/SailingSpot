@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../Redux/userslice";
+import { loginUser } from "../../redux/userslice";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     const email = formData?.email;
     const password = formData?.password;
-  
+
     dispatch(
       loginUser({
         email,
@@ -31,7 +31,7 @@ const Login = () => {
       });
     }
 
-  
+
 
   return (
     <div className='signup-container'>
@@ -68,5 +68,5 @@ const Login = () => {
     </div>
     );
     };
-    
+
     export default Login;

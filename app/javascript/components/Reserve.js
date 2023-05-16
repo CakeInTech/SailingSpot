@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { addReservation } from "../Redux/Reservations/addResevation";
-import { userSelector } from '../Redux/userslice';
+import { userSelector } from '../redux/userslice';
 
 const Reserve = () => {
   const [city, setCity] = useState("");

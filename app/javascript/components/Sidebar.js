@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, NavLink } from 'react-router-dom';
-import { logout, userSelector } from '../Redux/userslice';
+import { logout, userSelector } from '../redux/userslice';
 import '../scss/sidebar.scss';
 import '../../../node_modules/boxicons/css/boxicons.min.css'
 
