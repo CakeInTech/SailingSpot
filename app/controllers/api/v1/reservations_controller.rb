@@ -4,6 +4,7 @@ class Api::V1::ReservationsController < ApplicationController
     reservations = current_user.reservations.includes(:boat)
     reservation_array = reservations.map do |reservation|
       {
+        id: reservation.id,
         pick_up: reservation.pick_up,
         return_date: reservation.return_date,
         boat_name: reservation.boat.name,
