@@ -10,8 +10,8 @@ class Ability
       if user.role == 'admin'
         can :manage, :all
       else
-        can :read, Boat
-        can [:create, :update], Reservation
+        can :read, Boat, user_id
+        can [:create, :update], Reservation, user_id
       end
     end
   end

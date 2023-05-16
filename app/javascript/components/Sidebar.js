@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
+import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import '../scss/sidebar.scss';
 import '../../../node_modules/boxicons/css/boxicons.min.css'
 
+
 const Sidebar = () => {
+  const { authorization } = useSelector((state) => state.authorization);
   useEffect(() => {
     const body = document.querySelector('body');
     const sidebar = body.querySelector('nav');
-    const toggle = body.querySelector('.toggle');
-
+    const toggle = body.querySelector('.toggle');   
     toggle.addEventListener('click', () => {
       sidebar.classList.toggle('close');
     });
@@ -49,18 +51,26 @@ const Sidebar = () => {
                 <span className="text nav-text">My Reservation</span>
               </NavLink>
             </li>
-            <li className="nav-link">
-              <NavLink to="/add-boat" activeclassname="active">
-                <i className="bx bxs-add-to-queue icon"></i>
-                <span className="text nav-text">Add Boat</span>
-              </NavLink>
-            </li>
-            <li className="nav-link">
-              <NavLink to="/delete-boat" activeclassname="active">
-                <i className="bx bxs-message-alt-x icon"></i>
-                <span className="text nav-text">Delete Boat</span>
-              </NavLink>
-            </li>
+            {authorization.includes('create') && (
+              <li className="nav-link">
+                <NavLink to="/add-boat" activeclassname="active">
+                  <i className="bx bxs-add-to-queue icon"></i>
+                  
+                  <span className="text nav-text">Add Boat</span>
+                   
+                </NavLink>
+              </li>
+              )}
+                                {authorization.includes('create') && ( 
+              <li className="nav-link">
+                <NavLink to="/delete-boat" activeclassname="active">
+                  <i className="bx bxs-message-alt-x icon"></i>
+
+                  <span className="text nav-text">Delete Boat</span>
+
+                </NavLink>
+              </li>
+)}
           </ul>
         </div>
       </div>

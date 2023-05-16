@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { addReservation } from "../Redux/Reservations/addResevation";
+import { useSelector } from "react-redux";
 
 const Reserve = () => {
   const [city, setCity] = useState("");
   const [pick_up, setPick_up] = useState("");
   const [return_date, setReturn_date] = useState("");
-  const { boat } = useSelector((state) => state.boat);
-  const { user } = useSelector((state) => state.user);
-  
+  const { boats } = useSelector((state) => state.boats);
+  const { user_id } = useSelector((state) => state.users);
+  const { authorization } = useSelector((state) => state.authorization);
   
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city.trim() && pick_up.trim() && return_date.trim()) {
-      dispatch(addReservation(user.id, {
+      dispatch(addReservation(user_id, {
         city,
         pick_up,
         return_date,
-        boat_id: boat.id,
-        user_id: user.id,
+        boat_id: boats[0].id,
+        user_id: user_id,
       }));
       setCity('');
       setPick_up('');
@@ -69,9 +70,11 @@ const Reserve = () => {
             onChange = {(e) => setReturn_date(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary mt-4">
-          Submit
-        </button>
+        {authorization.includes('create') ? (
+          <button type="submit" className="btn btn-primary mt-4">Submit</button>
+        ) : (
+          <button type="button" disabled>Create Reservation</button>
+        )}
       </form>
     </div>
   );
