@@ -1,22 +1,34 @@
 import React, { useEffect } from 'react';
-import { useSelector } from "react-redux";
-import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate, NavLink } from 'react-router-dom';
+import { logout, userSelector } from '../Redux/userslice';
 import '../scss/sidebar.scss';
 import '../../../node_modules/boxicons/css/boxicons.min.css'
-
-
 const Sidebar = () => {
   const { authorization } = useSelector((state) => state.authorization);
+  const user = useSelector(userSelector);
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const { name } = user;
+  console.log('Hello user ' + {name} );
   useEffect(() => {
     const body = document.querySelector('body');
     const sidebar = body.querySelector('nav');
-    const toggle = body.querySelector('.toggle');   
+    const toggle = body.querySelector('.toggle');
     toggle.addEventListener('click', () => {
       sidebar.classList.toggle('close');
     });
-
   }, []);
-
+  const handleLogout = async () => {
+    try {
+      await fetch("/logout", { method: "DELETE" });
+      dispatch(logout());
+      window.location.reload();
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <nav className="sidebar">
       <header>
@@ -33,6 +45,9 @@ const Sidebar = () => {
       <div className="menu-bar">
         <div className="menu">
           <ul className="menu-links">
+            {user.success && (
+            <li className="nav-link"><p className="text nav-text">Welcome { name }</p></li>
+            )}
             <li className="nav-link">
               <NavLink to="/" activeclassname="active">
                 <i className="bx bxs-home-alt-2 icon"></i>
@@ -55,27 +70,31 @@ const Sidebar = () => {
               <li className="nav-link">
                 <NavLink to="/add-boat" activeclassname="active">
                   <i className="bx bxs-add-to-queue icon"></i>
-                  
                   <span className="text nav-text">Add Boat</span>
-                   
                 </NavLink>
               </li>
               )}
-              {authorization.includes('create') && ( 
+              {authorization.includes('create') && (
               <li className="nav-link">
                 <NavLink to="/delete-boat" activeclassname="active">
                   <i className="bx bxs-message-alt-x icon"></i>
-
                   <span className="text nav-text">Delete Boat</span>
-
                 </NavLink>
               </li>
               )}
+              {user.success && (
+                <li className="nav-link">
+                  <NavLink to="/" activeclassname="active">
+                    <i class='bx bx-log-out icon'></i>
+                    <span onClick={handleLogout} className="text nav-text">Logout</span>
+                  </NavLink>
+                </li>
+              )}
+              
           </ul>
         </div>
       </div>
     </nav>
   );
 };
-
 export default Sidebar;
