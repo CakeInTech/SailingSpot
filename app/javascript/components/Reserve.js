@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addReservation } from "../Redux/Reservations/addResevation";
+import { allBoatsId } from "../Redux/Boats/detailSlice";
 
 const Reserve = () => {
   const [city, setCity] = useState("");
   const [pick_up, setPick_up] = useState("");
   const [return_date, setReturn_date] = useState("");
-  const { boat } = useSelector((state) => state.boats);
+  const dispatch = useDispatch();
+  const boatsId = useSelector(allBoatsId);
   const { user } = useSelector((state) => state.user);
+  // console.log('lists of boats', boatsId)
 
 
   const handleSubmit = (e) => {
@@ -17,7 +20,7 @@ const Reserve = () => {
         city,
         pick_up,
         return_date,
-        boat_id: boat.id,
+        boat_id: boatsId.id,
         user_id: user.id,
       }));
       setCity('');

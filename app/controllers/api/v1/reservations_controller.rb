@@ -1,5 +1,4 @@
 class Api::V1::ReservationsController < ApplicationController
-
   def index
     reservations = current_user.reservations.includes(:boat)
     reservation_array = reservations.map do |reservation|
@@ -8,7 +7,7 @@ class Api::V1::ReservationsController < ApplicationController
         pick_up: reservation.pick_up,
         return_date: reservation.return_date,
         boat_name: reservation.boat.name,
-        boat_photo: reservation.boat.photo,
+        boat_photo: reservation.boat.photo
       }
     end
     render json: reservation_array, status: :ok

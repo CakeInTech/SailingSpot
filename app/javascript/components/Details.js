@@ -58,7 +58,7 @@ const Details = () => {
                       </div>
                     </div>
                     <div className="boat-row">
-                      <div className="boat-label">Description:</div>
+                      <div className="boat-label">Descriptions:</div>
                       <div className="boat-value">{boatsId.description}</div>
                     </div>
                     <div className="boat-row boat-bottom-row">
