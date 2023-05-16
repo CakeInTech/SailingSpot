@@ -61,7 +61,7 @@ const Sidebar = () => {
                 </NavLink>
               </li>
               )}
-                                {authorization.includes('create') && ( 
+              {authorization.includes('create') && ( 
               <li className="nav-link">
                 <NavLink to="/delete-boat" activeclassname="active">
                   <i className="bx bxs-message-alt-x icon"></i>
@@ -70,7 +70,7 @@ const Sidebar = () => {
 
                 </NavLink>
               </li>
-)}
+              )}
           </ul>
         </div>
       </div>
