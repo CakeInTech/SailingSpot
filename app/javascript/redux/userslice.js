@@ -39,7 +39,7 @@ const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {
     rejected: false,
     errMassage: "",
   };
-  
+
   const initialState = {
     user: userFromLocalStorage,
   };
@@ -127,7 +127,7 @@ const useSlice = createSlice({
   },
 });
 
-export const userSelector = (state) => state.user;
+export const userSelector = (state) => state.user.user;
 
 export const { logout } = useSlice.actions;
 

@@ -8,7 +8,7 @@ import detailSlice from './Boats/detailSlice';
 const reducer = combineReducers({
   boats: boatsSlice,
   reservations: reservationsSlice,
-  users: userslice,
+  user: userslice,
   boatsId: detailSlice
 });
 

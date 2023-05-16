@@ -11,6 +11,7 @@ import AddBoat from "./AddBoat";
 import DeleteBoat from "./DeleteBoat";
 import Login from './user/Login';
 import SignUp from './user/Signup';
+import Welcome from './welcome';
 import "../scss/app.scss";
 
 export const App = () => {
@@ -29,6 +30,7 @@ export const App = () => {
               <Route path="/delete-boat" element={<DeleteBoat />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/welcome" element={<Welcome />}/>
             </Routes>
         </div>
       </Router>
