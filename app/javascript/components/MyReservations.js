@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getReservations } from "../Redux/Reservations/reservationsReducer";
 import '../scss/myreservation.scss';
+import Spinner from "./Spinner";
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const MyReservations = () => {
   }, [dispatch]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (status === "failed") {
