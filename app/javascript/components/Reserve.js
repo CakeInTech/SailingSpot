@@ -26,6 +26,7 @@ const Reserve = () => {
       setCity('');
       setPick_up('');
       setReturn_date('');
+      alert('Reservation created successfully')
     } else {
       alert('Enter details');
     }
