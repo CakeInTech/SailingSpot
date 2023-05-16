@@ -45,8 +45,8 @@ body.dark {
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px;
-  padding: 10px 14px;
+  width: 18.75rem;
+  padding: 0.625rem 0.875rem;
   background: var(--sidebar-color);
   transition: var(--tran-05);
   z-index: 100;
@@ -92,6 +92,7 @@ body.dark {
   font-weight: 500;
   white-space: nowrap;
   opacity: 1;
+  font-size: 25px;
 }
 
 .sidebar.close .text {
@@ -102,6 +103,7 @@ body.dark {
 
 .sidebar header {
   position: relative;
+  margin-bottom: 50px;
 }
 
 .sidebar header .image-text {
@@ -219,6 +221,9 @@ body.dark .sidebar li a:hover .text {
 
 .menu-links {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px
 }
 
 .menu-bar::-webkit-scrollbar {
