@@ -36,7 +36,7 @@ const Reserve = () => {
       <h1 className="text-center mt-5 border border-primary">
         Book a Test Ride
       </h1>
-      <form className="w-50 mx-auto" onSubmit={handleSubmit}>
+      <form className="w-50 mx-auto was-validated" onSubmit={handleSubmit}>
         <div className="form-group m-4">
           <label for="city">Enter city</label>
           <input
@@ -47,7 +47,10 @@ const Reserve = () => {
             name="city"
             value={city}
             onChange = {(e) => setCity(e.target.value)}
+            required
           />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-group m-4">
           <label for="pick-up">Pick-Up Date</label>
@@ -59,7 +62,10 @@ const Reserve = () => {
             name="pick_up"
             value={pick_up}
             onChange = {(e) => setPick_up(e.target.value)}
+            required
           />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-group m-4">
           <label for="return-date">Return Date</label>
@@ -71,7 +77,10 @@ const Reserve = () => {
             name="return_date"
             value={return_date}
             onChange = {(e) => setReturn_date(e.target.value)}
+            required
           />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <button type="submit" className="btn btn-primary mt-4">
           Submit
