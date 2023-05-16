@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { addReservation } from "../Redux/Reservations/addResevation";
 
 const Reserve = () => {
   const [city, setCity] = useState("");
   const [pick_up, setPick_up] = useState("");
   const [return_date, setReturn_date] = useState("");
-  const { boat } = useSelector((state) => state.boat);
-  const { user } = useSelector((state) => state.user);
-  
-  
+  const boat = useSelector((state) => state.boats.boats);
+  const user = useSelector((state) => state.user);
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city.trim() && pick_up.trim() && return_date.trim()) {

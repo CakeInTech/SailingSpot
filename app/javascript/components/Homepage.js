@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getBoats } from "../Redux/Boats/boatsReducer";
+import { fetchBoatData } from "../Redux/Boats/boatSlice.js";
+import { allStatus, allBoats } from "../Redux/Boats/boatSlice.js";
 import Spinner from "./Spinner.js";
 import "../scss/homepage.scss";
 
 const Homepage = () => {
   const dispatch = useDispatch();
-  const { boats, status } = useSelector((state) => state.boats);
-
+  const boats = useSelector(allBoats)
+  const status = useSelector(allStatus)
   console.log("here we gooo", boats, status);
 
   useEffect(() => {
-    dispatch(getBoats());
+    dispatch(fetchBoatData());
   }, [dispatch]);
 
   return (
@@ -23,9 +24,7 @@ const Homepage = () => {
 
       <main className="row row-cols-1 row-cols-md-3 g-4">
         {status === null || status === "pending" ? (
-          <div className="spinner-here-appointment">
             <Spinner />
-          </div>
         ) : (
           boats?.boats?.map((boat) => {
             if (boat.availability === true) {
@@ -34,7 +33,6 @@ const Homepage = () => {
                   <Link to={`details/${boat.id}`}>
                     <div className="card h-100">
                       <div className="card-img-container">
-                        <div className="circle"></div>
                         <img
                           src={boat.photo}
                           className="card-img-top"

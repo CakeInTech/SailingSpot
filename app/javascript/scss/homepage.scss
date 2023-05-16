@@ -5,9 +5,9 @@
 .home {
   position: absolute;
   top: 0;
-  left: 330px;
+  left: 250px;
   height: 100vh;
-  width: calc(90% - 250px);
+  width: calc(100% - 250px);
   transition: var(--tran-05);
   background: white;
 }

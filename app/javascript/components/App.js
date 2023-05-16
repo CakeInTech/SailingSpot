@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import store from "../Redux/configureStore";
 import Sidebar from "./Sidebar";
 import HomePage from "./Homepage";
+import Details from './Details';
 import Reserve from "./Reserve";
 import MyReservations from "./MyReservations";
 import AddBoat from "./AddBoat";
@@ -21,6 +22,7 @@ export const App = () => {
         <div className='home'>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/details/:id" element={<Details />}/>
               <Route path="/reserve" element={<Reserve />} />
               <Route path="/my-reservations" element={<MyReservations />} />
               <Route path="/add-boat" element={<AddBoat />} />

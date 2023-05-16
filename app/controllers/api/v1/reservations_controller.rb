@@ -1,6 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update]
-  skip_before_action :verify_authenticity_token
 
   def index
     reservations = Reservation.all
