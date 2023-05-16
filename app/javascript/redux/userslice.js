@@ -30,6 +30,7 @@ export const loginUser = createAsyncThunk(
 const signUp = "/signup";
 
 const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {
+    user_id: 0,
     name: "",
     email: "",
     password: "",
