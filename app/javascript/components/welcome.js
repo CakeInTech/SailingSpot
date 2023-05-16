@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { logout, userSelector } from '../redux/userslice';
+import { logout, userSelector } from '../Redux/userslice';
 
 const Welcome = () => {
   const user = useSelector(userSelector)

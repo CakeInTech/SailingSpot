@@ -6,7 +6,7 @@ const initialState = {
   status: null,
 };
 
-const baseUrl = `${window.location.origin}/api/v1`;
+const baseUrl = `/api/v1`;
 
 export const fetchDetailsData = createAsyncThunk(
   "fetchDetailsData",

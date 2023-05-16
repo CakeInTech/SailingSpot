@@ -4,13 +4,12 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { logout, userSelector } from '../Redux/userslice';
 import '../scss/sidebar.scss';
 import '../../../node_modules/boxicons/css/boxicons.min.css'
+
 const Sidebar = () => {
-  const { authorization } = useSelector((state) => state.authorization);
   const user = useSelector(userSelector);
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const { name } = user;
-  console.log('Hello user ' + {name} );
+
   useEffect(() => {
     const body = document.querySelector('body');
     const sidebar = body.querySelector('nav');
@@ -46,7 +45,7 @@ const Sidebar = () => {
         <div className="menu">
           <ul className="menu-links">
             {user.success && (
-            <li className="nav-link"><p className="text nav-text">Welcome { name }</p></li>
+            <li className="nav-link"><p className="text nav-text">Welcome { user.name }</p></li>
             )}
             <li className="nav-link">
               <NavLink to="/" activeclassname="active">
@@ -66,7 +65,8 @@ const Sidebar = () => {
                 <span className="text nav-text">My Reservation</span>
               </NavLink>
             </li>
-            {authorization.includes('create') && (
+
+            { user.role == 'admin' && (
               <li className="nav-link">
                 <NavLink to="/add-boat" activeclassname="active">
                   <i className="bx bxs-add-to-queue icon"></i>
@@ -74,7 +74,7 @@ const Sidebar = () => {
                 </NavLink>
               </li>
               )}
-              {authorization.includes('create') && (
+              { user.role == 'admin' && (
               <li className="nav-link">
                 <NavLink to="/delete-boat" activeclassname="active">
                   <i className="bx bxs-message-alt-x icon"></i>
@@ -85,7 +85,7 @@ const Sidebar = () => {
               {user.success && (
                 <li className="nav-link">
                   <NavLink to="/" activeclassname="active">
-                    <i class='bx bx-log-out icon'></i>
+                    <i className='bx bx-log-out icon'></i>
                     <span onClick={handleLogout} className="text nav-text">Logout</span>
                   </NavLink>
                 </li>
@@ -93,7 +93,7 @@ const Sidebar = () => {
               {!user.success && (
                 <li className="nav-link">
                   <NavLink to="/login" activeclassname="active">
-                    <i class='bx bx-log-in icon'></i>
+                    <i className='bx bx-log-in icon'></i>
                     <span className="text nav-text">Login</span>
                   </NavLink>
                 </li>
@@ -101,7 +101,7 @@ const Sidebar = () => {
               {!user.success && (
                 <li className="nav-link">
                   <NavLink to="/signup" activeclassname="active">
-                    <i class='bx bx-user-plus icon'></i>
+                    <i className='bx bx-user-plus icon'></i>
                     <span className="text nav-text">Sign-up</span>
                   </NavLink>
                 </li>
