@@ -4,10 +4,6 @@ class Api::V1::AbilitiesController < ApplicationController
       # authorize! :read, :authorization
       # abilities = current_user.abilities
       render json: { abilities: current_user.ability }
-
-
-
-      # render json: current_user.ability
     else
       render json: { error: 'Unauthorized' }, status: :unauthorized
     end
