@@ -1,5 +1,4 @@
 class Api::V1::BoatsController < ApplicationController
-
   before_action :set_boat, only: %i[show update]
 
   def index

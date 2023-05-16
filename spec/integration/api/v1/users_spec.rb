@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'SailingSpot API', type: :request, swagger_doc: 'v1/swagger.yaml' do
-  path "/api/v1/users" do
+  path '/api/v1/users' do
     get 'Retrieve a list of all users' do
       tags 'user'
       produces 'application/json'
@@ -16,12 +16,12 @@ RSpec.describe 'SailingSpot API', type: :request, swagger_doc: 'v1/swagger.yaml'
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          name: { type: :string },
+          name: { type: :string }
         }
-      }      
+      }
       let(:user) do
         {
-          name: 'test user',
+          name: 'test user'
         }
       end
       response '201', 'Created' do

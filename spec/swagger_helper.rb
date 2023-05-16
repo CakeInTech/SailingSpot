@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 require 'rswag/specs'
 
@@ -38,7 +36,7 @@ RSpec.configure do |config|
         User:
           {
             type: :object,
-            properties: { id: { type: :integer }, name: { type: :string } },
+            properties: { id: { type: :integer }, name: { type: :string } }
           },
         Boat:
           {
@@ -51,8 +49,8 @@ RSpec.configure do |config|
                 model: { type: :string },
                 photo: { type: :string },
                 price: { type: :number },
-                user_id: { type: :integer },
-              },
+                user_id: { type: :integer }
+              }
           },
         Reservation:
           {
@@ -64,9 +62,9 @@ RSpec.configure do |config|
                 pick_up: { type: :string, format: :date_time },
                 return_date: { type: :string, format: :date_time },
                 user_id: { type: :integer },
-                boat_id: { type: :integer },
-              },
-          },
+                boat_id: { type: :integer }
+              }
+          }
       }
     }
   }

@@ -7,7 +7,7 @@ class Api::V1::AbilitiesController < ApplicationController
 
 
 
-      # render json: current_user.ability 
+      # render json: current_user.ability
     else
       render json: { error: 'Unauthorized' }, status: :unauthorized
     end
