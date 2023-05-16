@@ -90,6 +90,14 @@ const Sidebar = () => {
                   </NavLink>
                 </li>
               )}
+              {!user.success && (
+                <li className="nav-link">
+                  <NavLink to="/login" activeclassname="active">
+                    <i class='bx bx-log-in icon'></i>
+                    <span className="text nav-text">Login</span>
+                  </NavLink>
+                </li>
+              )}
               
           </ul>
         </div>
