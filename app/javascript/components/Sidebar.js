@@ -16,7 +16,7 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <nav className="sidebar">
+    <nav className="sidebar close">
       <header>
         <div className="image-text">
           <span className="image">
