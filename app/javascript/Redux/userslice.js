@@ -42,7 +42,7 @@ const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {
     role: "",
     
   };
-  
+
   const initialState = {
     user: userFromLocalStorage,
   };

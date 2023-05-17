@@ -1,54 +1,43 @@
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
-  added: false,
-  error: '',
+  status: null,
 };
 
-const ADD_BOAT_SUCCESS = 'ADD_BOAT_SUCCESS';
-const ADD_BOAT_FAILURE = 'ADD_BOAT_FAILURE';
+const baseUrl = `${window.location.origin}/api/v1`;
 
-const addBoatSuccess = () => ({
-  type: ADD_BOAT_SUCCESS,
-});
-
-const addBoatFailure = (error) => ({
-  type: ADD_BOAT_FAILURE,
-  error,
-});
-
-const addBoatReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_BOAT_SUCCESS:
-      return {
-        ...state,
-        added: true,
-      };
-    case ADD_BOAT_FAILURE:
-      return {
-        ...state,
-        added: false,
-        error: action.error.message,
-      };
-    default:
-      return state;
-  }
-};
-
-export const addBoat = (boat) => async (dispatch) => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
+export const createBoat = createAsyncThunk(
+  "boats/create",
+  async (payload, thunkAPI) => {
+    try {
+      const response = await axios.post(`${baseUrl}/boats`, { boat: payload });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.response.data);
     }
-  };
-  const body = JSON.stringify(boat);
-  await axios.post('/api/v1/boats', body, config)
-    .then(() => {
-      dispatch(addBoatSuccess());
-    })
-    .catch((error) => {
-      dispatch(addBoatFailure(error.message));
-    });
-};
+  }
+);
 
-export default addBoatReducer;
+const addBoatSlice = createSlice({
+  name: "newBoat",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(createBoat.pending, (state) => ({
+        ...state,
+        status: "pending",
+      }))
+      .addCase(createBoat.fulfilled, (state, action) => ({
+        ...state,
+        status: "success",
+      }))
+      .addCase(createBoat.rejected, (state, action) => ({
+        ...state,
+        status: "rejected",
+      }));
+  },
+});
+
+export default addBoatSlice.reducer;

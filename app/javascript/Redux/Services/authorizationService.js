@@ -1,22 +1,20 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-
 const initialState = {
-  authorization: [],
+  abilities: {},
   status: 'idle',
   error: null,
 };
-
-export const getAuthorization = createAsyncThunk('sailspot/authorization', async () => {
-  const response = await axios.get('/api/v1/authorization');
-  if (response.data) {
+export const getAuthorization = createAsyncThunk('sailspot/authorization', async (thunkAPI) => {
+  try {
+    const response = await axios.get('/api/v1/abilities');
     return response.data;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.response.data);
   }
-  return [];
 });
-
 const authorizationSlice = createSlice({
-  name: 'authorization',
+  name: 'abilities',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -26,7 +24,7 @@ const authorizationSlice = createSlice({
       })
       .addCase(getAuthorization.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.authorization = action.payload;
+        state.abilities = action.payload;
       })
       .addCase(getAuthorization.rejected, (state, action) => {
         state.status = 'failed';
@@ -34,5 +32,4 @@ const authorizationSlice = createSlice({
       });
   },
 });
-
 export default authorizationSlice.reducer;

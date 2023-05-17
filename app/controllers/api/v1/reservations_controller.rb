@@ -3,16 +3,17 @@ class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update]
 
   def index
-    reservations = Reservation.all
-    render json: { reservations: }, status: :ok
-  end
-
-  def show
-    render json: { reservations: @reservation }, status: :ok
-  end
-
-  def new
-    Reservation.new
+    reservations = current_user.reservations.includes(:boat)
+    reservation_array = reservations.map do |reservation|
+      {
+        id: reservation.id,
+        pick_up: reservation.pick_up,
+        return_date: reservation.return_date,
+        boat_name: reservation.boat.name,
+        boat_photo: reservation.boat.photo
+      }
+    end
+    render json: reservation_array, status: :ok
   end
 
   def create
@@ -44,11 +45,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   private
 
-  def set_reservation
-    @reservation = Reservation.find(params[:id])
-  end
-
   def reservation_params
-    params.require(:reservation).permit(:city, :pick_up, :return_date, :boat_id, :user_id)
+    params.require(:reservation).permit(:city, :pick_up, :return_date, :boat_id)
   end
 end

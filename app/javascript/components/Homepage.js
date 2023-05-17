@@ -10,7 +10,6 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const boats = useSelector(allBoats)
   const status = useSelector(allStatus)
-  console.log("here we gooo", boats, status);
 
   useEffect(() => {
     dispatch(fetchBoatData());
@@ -19,7 +18,7 @@ const Homepage = () => {
   return (
     <section className="main-container">
       <h1 className="text-center">Boats for Rent</h1>
-      <p className="text-center sub-header">Choose your boats</p>
+      <p className="text-center sub-header">Choose your boat</p>
       <div className="dot"></div>
 
       <main className="row row-cols-1 row-cols-md-3 g-4">

@@ -5,7 +5,7 @@ import { fetchDetailsData } from "../Redux/Boats/detailSlice";
 import { allBoatsId, allStatus } from "../Redux/Boats/detailSlice";
 import Spinner from "./Spinner";
 import "../scss/details.scss";
-import { userSelector } from '../redux/userslice';
+import { userSelector } from '../Redux/userslice';
 
 const Details = () => {
   const { id } = useParams();
@@ -13,8 +13,6 @@ const Details = () => {
   const status = useSelector(allStatus);
   const dispatch = useDispatch();
   const user = useSelector(userSelector);
-
-  console.log("here we goooo", boatsId);
 
   useEffect(() => {
     if (id) {
@@ -60,7 +58,7 @@ const Details = () => {
                       </div>
                     </div>
                     <div className="boat-row">
-                      <div className="boat-label">Description:</div>
+                      <div className="boat-label">Descriptions:</div>
                       <div className="boat-value">{boatsId.description}</div>
                     </div>
                     {user.success && (

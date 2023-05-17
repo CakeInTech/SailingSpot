@@ -16,6 +16,7 @@ class Api::V1::BoatsController < ApplicationController
 
   def create
     boat = Boat.new(boat_params)
+    boat.user_id = current_user.id
 
     if boat.save
       render json: { message: 'Boat created successfully!' }, status: :created

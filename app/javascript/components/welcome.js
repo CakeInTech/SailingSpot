@@ -5,7 +5,6 @@ import { logout, userSelector } from '../Redux/userslice';
 
 const Welcome = () => {
   const user = useSelector(userSelector)
-  console.log(user)
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
@@ -16,7 +15,7 @@ const Welcome = () => {
       dispatch(logout());
       navigate('/signup')
     } catch (error) {
-      console.log(error);
+       (error);
     }
   };
 
@@ -49,7 +48,7 @@ const Welcome = () => {
       )}
     </div>
   );
-  
+
 };
 
 export default Welcome;
