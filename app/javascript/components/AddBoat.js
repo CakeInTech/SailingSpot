@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBoat } from '../Redux/Boats/addBoat';
 
 const AddBoat = () => {
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [photo, setPhoto] = useState('')
+  const [price, setPrice] = useState('')
+  const [model, setModel] = useState('')
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBoat({
-      "name": "new test speed",
-      "description": "New speed boat can carry 12persons",
-      "photo": "No a foto",
-      "price": 10.0,
-      "model": "test",
-      "user_id": 3
-    }));
+    if(name.trim() && description.trim() && photo.trim() && price.trim() && model.trim()){
+      dispatch(addBoat({
+        name,
+        description,
+        photo,
+        price,
+        model
+      }));
+      setName('')
+      setDescription('')
+      setPhoto('')
+      setPrice('')
+      setModel('')
+    }
   };
   return (
     <form onSubmit={handleSubmit}>
