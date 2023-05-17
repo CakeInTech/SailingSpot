@@ -20,7 +20,6 @@ tags: [
   }
 ]
 schemes: [
-  "https",
   "http"
 ]
 paths:
@@ -33,7 +32,7 @@ paths:
       parameters: []
       responses:
         '200': {
-          description: User retrieve successfully!,
+          description: User retrieved successfully!,
           headers: {},
           schema: {
             $ref: "#/definitions/User"
@@ -43,16 +42,44 @@ paths:
           description: Bad Request
         '404':
           description: User not found
+    post:
+      summary: Create new user
+      tags:
+        - user
+      consumes: application/json
+      produces: application/json
+      parameters: []
+      responses:
+        '200': {
+          description: User created successfully!,
+          headers: {},
+          schema: {
+            $ref: "#/definitions/User"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: User not found
+      requestBody:
+        content:
+          application/json:
+            schema: {
+              type: object,
+              properties: {
+                name: { type: string },
+              }
+            }
   "/api/v1/boats":
     get: 
-      summary: Retrieve a list of all boats
+      summary: Retrieves a list of all boats
       tags:
         - boat
       produces: application/json
       parameters: []
       responses:
         '200': {
-          description: Boats retrieve successfully!,
+          description: Boats retrieved successfully!,
           headers: {},
           schema: {
             $ref: "#/definitions/Boat"
@@ -97,7 +124,7 @@ paths:
             }
   "/api/v1/boats/{id}":
       get:
-        summary: Retrieve selected boat information
+        summary: Retrieves selected boat
         tags:
         - boat
         produces: application/json
@@ -109,7 +136,7 @@ paths:
             type: integer
         responses:
           '200': {
-            description: Boat retrieve successfully!,
+            description: Boat retrieved successfully!,
             schema: {
               $ref: "#/definitions/Boat"
             }
@@ -120,7 +147,7 @@ paths:
             description: Boat not found
   
       put:
-        summary: Update selected boat information
+        summary: Update selected boat
         tags:
         - boat
         consumes: application/json
@@ -160,10 +187,38 @@ paths:
                   user_id: { type: integer },
                 }
               }
+
+      delete:
+        summary: Delete selected boat
+        tags:
+        - boat
+        consumes: application/json
+        produces: application/json
+        parameters:
+          [
+            {
+              name: id,
+              in: path,
+              required: true,
+              description: Numeric Boat ID required,
+              type: integer,
+            },
+          ]
+        responses:
+          '200': {
+            description: Boat deleted successfully!,
+            schema: {
+              $ref: "#/definitions/Boat"
+            }
+          }
+          '400':
+            description: Bad Request
+          '404':
+            description: Boat not found
   
   "/api/v1/users/{user_id}/reservations":
     get:
-      summary: Retrieve a list of reservations of a user
+      summary: Retrieves a list of reservations of a user
       tags:
         - reservation
       produces: application/json
@@ -174,7 +229,7 @@ paths:
         type: integer
       responses:
         '200': {
-          description: Reservations are retrieved successfully!,
+          description: Reservations retrieved successfully!,
           schema: {
             $ref: "#/definitions/Reservation"
           }
@@ -224,7 +279,7 @@ paths:
             }
   "/api/v1/users/{user_id}/reservations/{id}":
     get:
-      summary: Retrieve selected reservation information 
+      summary: Retrieves selected reservation 
       tags:
         - reservation
       produces: application/json
@@ -245,7 +300,7 @@ paths:
         ]
       responses:
         '200': {
-          description: Reservation retrieves successfully!,
+          description: Reservation retrieved successfully!,
           schema: {
             $ref: "#/definitions/Reservation"
           }
@@ -255,7 +310,7 @@ paths:
         '404':
           description: Reservation not found
     put:
-      summary: Update selected reservation information
+      summary: Update selected reservation
       tags:
         - reservation
       produces: application/json
@@ -276,7 +331,7 @@ paths:
         ]
       responses:
         '200': {
-          description: Update reservation successfully!,
+          description: Reservation updated  successfully!,
           schema: {
             $ref: "#/definitions/Reservation"
           }
@@ -298,6 +353,37 @@ paths:
                 boat_id: { type: integer },
               }
             }
+    delete:
+      summary: Delete selected reservation
+      tags:
+        - reservation
+      produces: application/json
+      parameters:
+        [
+          {
+            name: user_id,
+            in: path,
+            required: true,
+            type: integer,
+          },
+          {
+            name: id,
+            in: path,
+            required: true,
+            type: integer,
+          },
+        ]
+      responses:
+        '200': {
+          description: Reservation deleted successfully!,
+          schema: {
+            $ref: "#/definitions/Reservation"
+          }
+        }
+        '400':
+          description: Bad Request
+        '404':
+          description: Reservation not found
   "/api/v1/user/login": 
     get: 
       tags: 

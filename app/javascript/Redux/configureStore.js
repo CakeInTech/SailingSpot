@@ -1,15 +1,16 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import boatsSlice from './Boats/boatSlice';
-import reservationsSlice from '../Redux/Reservations/reservationsReducer';
-import userslice from '../redux/userslice';
+import reservationsSlice from './Reservations/reservationsReducer';
+import userslice from './userslice';
 import detailSlice from './Boats/detailSlice';
-
+import authorizationReducer from './Authorization/authorizationReducer';
 const reducer = combineReducers({
   boats: boatsSlice,
   reservations: reservationsSlice,
   user: userslice,
-  boatsId: detailSlice
+  boatsId: detailSlice,
+  authorization: authorizationReducer,
 });
 
 const store = configureStore({

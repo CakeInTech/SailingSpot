@@ -1,5 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'active_record'
 require 'spec_helper'
+require 'shoulda/matchers'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
@@ -68,7 +70,7 @@ RSpec.configure do |config|
   # config.include Devise::Test::ControllerHelpers, type: :controller
   # config.include Devise::Test::IntegrationHelpers, type: :feature
   # config.include Devise::Test::IntegrationHelpers, type: :requests
-  # config.include Capybara:😄SL
+  config.include Capybara::DSL
   config.include ActionView::Helpers::NumberHelper
 end
-# Capybara.default_driver = :selenium_chrome
+Capybara.default_driver = :selenium_chrome

@@ -1,4 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
+  # load_and_authorize_resource
+  before_action :set_reservation, only: %i[show update]
+
   def index
     reservations = current_user.reservations.includes(:boat)
     reservation_array = reservations.map do |reservation|
@@ -21,6 +24,22 @@ class Api::V1::ReservationsController < ApplicationController
       render json: { message: 'Reservation created successfully!' }, status: :created
     else
       render json: { errors: reservation.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @reservation.update(reservation_params)
+      render json: { message: 'Updated' }, status: :ok
+    else
+      render json: { errors: @reservation.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @reservation.destroy
+      render json: { message: 'Reservation deleted successfully!' }, status: :ok
+    else
+      render json: { errors: @reservation.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

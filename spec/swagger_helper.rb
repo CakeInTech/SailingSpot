@@ -24,14 +24,48 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: 'https://{defaultHost}',
+          url: '{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'https://{defaultHost}'
+              default: 'http://127.0.0.1:3000'
             }
           }
         }
-      ]
+      ],
+      definitions: {
+        User:
+          {
+            type: :object,
+            properties: { id: { type: :integer }, name: { type: :string } }
+          },
+        Boat:
+          {
+            type: :object,
+            properties:
+              {
+                id: { type: :integer },
+                name: { type: :string },
+                description: { type: :string },
+                model: { type: :string },
+                photo: { type: :string },
+                price: { type: :number },
+                user_id: { type: :integer }
+              }
+          },
+        Reservation:
+          {
+            type: :object,
+            properties:
+              {
+                id: { type: :integer },
+                city: { type: :string },
+                pick_up: { type: :string, format: :date_time },
+                return_date: { type: :string, format: :date_time },
+                user_id: { type: :integer },
+                boat_id: { type: :integer }
+              }
+          }
+      }
     }
   }
 

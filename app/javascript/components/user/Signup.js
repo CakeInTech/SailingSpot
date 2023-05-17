@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch} from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { registerUser } from '../../redux/userslice';
 import '../../scss/signup.scss';
-
+import { registerUser } from '../../redux/userslice'
 
 const SignUp = () => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addReservation } from "../Redux/Reservations/addResevation";
-import { allBoatsId } from "../Redux/Boats/detailSlice";
+import { userSelector } from '../Redux/userslice';
 
 const Reserve = () => {
   const [city, setCity] = useState("");
@@ -9,14 +9,15 @@ const Reserve = () => {
   const [return_date, setReturn_date] = useState("");
   const dispatch = useDispatch();
   const boatsId = useSelector(allBoatsId);
-  const { user } = useSelector((state) => state.user);
   // console.log('lists of boats', boatsId)
 
+  const boats = useSelector((state) => state.boats.boats);
+  const user = useSelector(userSelector);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city.trim() && pick_up.trim() && return_date.trim()) {
-      dispatch(addReservation(user.id, {
+      dispatch(addReservation(3, {
         city,
         pick_up,
         return_date,
@@ -83,9 +84,9 @@ const Reserve = () => {
           <div className="valid-feedback">Valid.</div>
           <div className="invalid-feedback">Please fill out this field.</div>
         </div>
-        <button type="submit" className="btn btn-primary mt-4">
-          Submit
-        </button>
+        {user.success && (
+          <button type="submit" className="btn btn-primary mt-4">Submit</button>
+        )}
       </form>
     </div>
   );

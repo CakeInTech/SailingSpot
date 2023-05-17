@@ -58,10 +58,12 @@ gem 'rswag-api'
 gem 'rswag-ui'
 
 group :development, :test do
+  gem 'capybara'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 6.0', '>= 6.0.2'
   gem 'rswag-specs'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.3'
 end
 
@@ -77,4 +79,5 @@ group :development do
 end
 
 gem 'active_model_serializers', '~> 0.10.13'
+gem 'cancancan'
 gem 'factory_bot_rails', '~> 6.2'

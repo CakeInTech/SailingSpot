@@ -39,6 +39,8 @@ const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {
     success: false,
     rejected: false,
     errMassage: "",
+    role: "",
+    
   };
 
   const initialState = {
@@ -94,6 +96,7 @@ const useSlice = createSlice({
         newState.name = action.payload.name;
         newState.email = action.payload.email;
         newState.user_id = action.payload.id;
+        newState.role = action.payload.role;
         localStorage.setItem("user", JSON.stringify(newState));
       })
       .addCase(registerUser.rejected, (state, action) => {
@@ -117,6 +120,7 @@ const useSlice = createSlice({
       newState.name = action.payload.name;
       newState.email = action.payload.email;
       newState.user_id = action.payload.id;
+      newState.role = action.payload.role;
       localStorage.setItem("user", JSON.stringify(newState));
     })
     .addCase(loginUser.rejected, (state, action) => {

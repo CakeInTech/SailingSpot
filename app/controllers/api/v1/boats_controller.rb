@@ -32,6 +32,14 @@ class Api::V1::BoatsController < ApplicationController
     end
   end
 
+  def destroy
+    if @boat.destroy
+      render json: { message: 'Boat deleted successfully!' }, status: :ok
+    else
+      render json: { errors: @boat.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_boat
