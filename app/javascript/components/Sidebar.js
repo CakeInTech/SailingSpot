@@ -67,19 +67,22 @@ const Sidebar = () => {
                 <span className="text nav-text">Home</span>
               </NavLink>
             </li>
+            {user.success && (
             <li className="nav-link">
               <NavLink to="/reserve" activeclassname="active">
                 <i className="bx bxs-book-content icon"></i>
                 <span className="text nav-text">Reservation</span>
               </NavLink>
             </li>
+            )}
+             {user.success && (
             <li className="nav-link">
               <NavLink to="/my-reservations" activeclassname="active">
                 <i className="bx bx-book-bookmark icon"></i>
                 <span className="text nav-text">My Reservation</span>
               </NavLink>
             </li>
-
+             )}
             {isAuthorized("Boat", "create") && (
               <li className="nav-link">
                 <NavLink to="/add-boat" activeclassname="active">
