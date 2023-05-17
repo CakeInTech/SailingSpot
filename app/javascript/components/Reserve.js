@@ -39,7 +39,7 @@ const Reserve = () => {
       </h1>
       <form className="w-50 mx-auto was-validated" onSubmit={handleSubmit}>
         <div className="form-group m-4">
-          <label for="city">Enter city</label>
+          <label htmlFor="city">Enter city</label>
           <input
             type="text"
             className="form-control"
@@ -50,11 +50,11 @@ const Reserve = () => {
             onChange = {(e) => setCity(e.target.value)}
             required
           />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-group m-4">
-          <label for="pick-up">Pick-Up Date</label>
+          <label htmlFor="pick-up">Pick-Up Date</label>
           <input
             type="date"
             className="form-control"
@@ -65,11 +65,11 @@ const Reserve = () => {
             onChange = {(e) => setPick_up(e.target.value)}
             required
           />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-group m-4">
-          <label for="return-date">Return Date</label>
+          <label htmlFor="return-date">Return Date</label>
           <input
             type="date"
             className="form-control"
@@ -80,8 +80,8 @@ const Reserve = () => {
             onChange = {(e) => setReturn_date(e.target.value)}
             required
           />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <button type="submit" className="btn btn-primary mt-4">
           Submit

@@ -43,9 +43,9 @@ const AddBoat = () => {
   return (
     <div>
       <h1 className="text-center mt-5 border border-primary">Add a Boat</h1>
-      <form class="w-50 mx-auto was-validated" onSubmit={handleSubmit}>
+      <form className="w-50 mx-auto was-validated" onSubmit={handleSubmit}>
         <div className="form-group m-4">
-          <label for="name">Enter Boat Name</label>
+          <label htmlFor="name">Enter Boat Name</label>
           <input
             type="text"
             className="form-control"
@@ -56,11 +56,11 @@ const AddBoat = () => {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-group m-4">
-          <label for="description">Enter Description</label>
+          <label htmlFor="description">Enter Description</label>
           <input
             type="text"
             className="form-control"
@@ -71,11 +71,11 @@ const AddBoat = () => {
             onChange={(e) => setDescription(e.target.value)}
             required
           />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-group m-4">
-          <label for="photo">Enter Photo</label>
+          <label htmlFor="photo">Enter Photo</label>
           <input
             type="string"
             className="form-control"
@@ -86,11 +86,11 @@ const AddBoat = () => {
             onChange={(e) => setPhoto(e.target.value)}
             required
           />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-group m-4">
-          <label for="price">Enter Price</label>
+          <label htmlFor="price">Enter Price</label>
           <input
             type="decimal"
             className="form-control"
@@ -101,11 +101,11 @@ const AddBoat = () => {
             onChange={(e) => setPrice(e.target.value)}
             required
           />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-group m-4">
-          <label for="model">Enter Model</label>
+          <label htmlFor="model">Enter Model</label>
           <input
             type="text"
             className="form-control"
@@ -116,35 +116,23 @@ const AddBoat = () => {
             onChange={(e) => setModel(e.target.value)}
             required
           />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
-        <div class="form-check">
+        <div className="form-check">
           <input
-            class="form-check-input"
-            type="radio"
-            name="availability"
-            id="availability"
+            className="form-check-input"
+            type="checkbox"
             value={availability}
-            onChange={(e) => setAvailability(e.target.value)}
-          />
-          <label class="form-check-label" for="availability">
-            Available
-          </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
             name="availability"
-            id="availability"
-            value={availability}
-            onChange={(e) => setAvailability(e.target.value)}
-            checked
+            onChange={(e) => setAvailability(e.target.checked)}
+            disabled
           />
-          <label class="form-check-label" for="unavailability">
-            Not Available
+          <label className="form-check-label" for="flexCheckDisabled">
+            Disabled checkbox
           </label>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <button type="submit" className="btn btn-primary mt-4">
           Add Boat
