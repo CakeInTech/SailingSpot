@@ -142,7 +142,7 @@ const AddBoat = () => {
             onChange={(e) => setAvailability(e.target.value)}
             checked
           />
-          <label class="form-check-label" for="flexRadioDefault2">
+          <label class="form-check-label" for="unavailability">
             Not Available
           </label>
         </div>
