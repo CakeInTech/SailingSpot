@@ -36,6 +36,7 @@ const addBoatReducer = (state = initialState, action) => {
 };
 
 export const addBoat = (boat) => async (dispatch) => {
+  console.log(boat)
   const config = {
     headers: {
       'Content-Type': 'application/json'

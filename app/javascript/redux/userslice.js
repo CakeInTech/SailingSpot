@@ -30,6 +30,7 @@ export const loginUser = createAsyncThunk(
 const signUp = "/signup";
 
 const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {
+    user_id: 0,
     name: "",
     email: "",
     password: "",
@@ -92,6 +93,7 @@ const useSlice = createSlice({
         newState.rejected = false;
         newState.name = action.payload.name;
         newState.email = action.payload.email;
+        newState.user_id = action.payload.id;
         localStorage.setItem("user", JSON.stringify(newState));
       })
       .addCase(registerUser.rejected, (state, action) => {
@@ -114,6 +116,7 @@ const useSlice = createSlice({
       newState.rejected = false;
       newState.name = action.payload.name;
       newState.email = action.payload.email;
+      newState.user_id = action.payload.id;
       localStorage.setItem("user", JSON.stringify(newState));
     })
     .addCase(loginUser.rejected, (state, action) => {

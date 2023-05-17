@@ -3,33 +3,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBoat } from "../Redux/Boats/addBoat";
 
 const AddBoat = () => {
+  const { user } = useSelector((state) => state.user);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const { user } = useSelector((state) => state.user);
   const [photo, setPhoto] = useState("");
   const [price, setPrice] = useState("");
   const [model, setModel] = useState("");
   const [availability, setAvailability] = useState("");
   const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      name.trim() &&
-      description.trim() &&
-      photo.trim() &&
-      price.trim() &&
-      model.trim() &&
-      availability.trim()
-    ) {
+    if (name.trim() && description.trim() && photo.trim() && price.trim() && model.trim() && availability) {
       dispatch(
-        addBoat(user.id, {
-          name,
-          description,
-          photo,
-          price,
-          model,
-          availability,
-          user_id: user.id,
+        addBoat({
+          "name": name,
+          "description": description,
+          "photo": photo,
+          "price": parseFloat(price),
+          "model": model,
+          "availability": availability,
+          "user_id": user.user_id,
         })
       );
       setName("");
@@ -120,17 +114,17 @@ const AddBoat = () => {
           <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="form-check">
+        <label className="form-check-label" htmlFor="availability">
+            Availability
+          </label>
           <input
             className="form-check-input"
             type="checkbox"
             value={availability}
             name="availability"
             onChange={(e) => setAvailability(e.target.checked)}
-            disabled
+            required
           />
-          <label className="form-check-label" for="flexCheckDisabled">
-            Disabled checkbox
-          </label>
           <div className="valid-feedback">Valid.</div>
           <div className="invalid-feedback">Please fill out this field.</div>
         </div>
