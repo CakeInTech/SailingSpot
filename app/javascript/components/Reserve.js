@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { addReservation } from "../Redux/Reservations/addResevation";
+import { userSelector } from '../redux/userslice';
 
 const Reserve = () => {
   const [city, setCity] = useState("");
   const [pick_up, setPick_up] = useState("");
   const [return_date, setReturn_date] = useState("");
-  const boat = useSelector((state) => state.boats.boats);
-  const user = useSelector((state) => state.user);
-
+  const boats = useSelector((state) => state.boats.boats);
+  const user = useSelector(userSelector);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city.trim() && pick_up.trim() && return_date.trim()) {
-      dispatch(addReservation(user.id, {
+      dispatch(addReservation(3, {
         city,
         pick_up,
         return_date,
-        boat_id: boat.id,
+        boat_id: boats.id,
         user_id: user.id,
       }));
       setCity('');
@@ -70,9 +70,9 @@ const Reserve = () => {
             onChange = {(e) => setReturn_date(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary mt-4">
-          Submit
-        </button>
+        {user.success && (
+          <button type="submit" className="btn btn-primary mt-4">Submit</button>
+        )}
       </form>
     </div>
   );

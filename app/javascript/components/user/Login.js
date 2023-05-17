@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     const email = formData?.email;
     const password = formData?.password;
-  
+
     dispatch(
       loginUser({
         email,
@@ -31,7 +31,7 @@ const Login = () => {
       });
     }
 
-  
+
 
   return (
     <div className='signup-container'>
@@ -68,5 +68,5 @@ const Login = () => {
     </div>
     );
     };
-    
+
     export default Login;

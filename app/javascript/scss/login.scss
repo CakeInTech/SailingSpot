@@ -1,0 +1,24 @@
+.formContainer {
+  box-shadow: 4px 8px 16px #d7d7d7;
+  margin: 20vh auto;
+  padding: 20px;
+  border-radius: 0px 0px 4px 4px;
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin-bottom: 20px;
+    box-shadow: none !important;
+    outline: none;
+  }
+
+  #formHeading {
+    background: #63cd9c;
+    margin: -20px;
+    border-radius: 4px 4px 0px 0px;
+  }
+}

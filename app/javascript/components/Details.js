@@ -5,12 +5,14 @@ import { fetchDetailsData } from "../Redux/Boats/detailSlice";
 import { allBoatsId, allStatus } from "../Redux/Boats/detailSlice";
 import Spinner from "./Spinner";
 import "../scss/details.scss";
+import { userSelector } from '../redux/userslice';
 
 const Details = () => {
   const { id } = useParams();
   const boatsId = useSelector(allBoatsId);
   const status = useSelector(allStatus);
   const dispatch = useDispatch();
+  const user = useSelector(userSelector);
 
   console.log("here we goooo", boatsId);
 
@@ -61,6 +63,7 @@ const Details = () => {
                       <div className="boat-label">Description:</div>
                       <div className="boat-value">{boatsId.description}</div>
                     </div>
+                    {user.success && (
                     <div className="boat-row boat-bottom-row">
                       <Link
                         to={`/reserve/${boatsId.id}`}
@@ -69,6 +72,7 @@ const Details = () => {
                         Reserve
                       </Link>
                     </div>
+                    )}
                   </div>
                 </div>
               </div>
