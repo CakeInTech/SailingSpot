@@ -4,13 +4,13 @@ import boatsSlice from './Boats/boatSlice';
 import reservationsSlice from './Reservations/reservationsReducer';
 import userslice from './userslice';
 import detailSlice from './Boats/detailSlice';
-import authorizationReducer from './Services/authorizationService';
+import authorizationSlice from './Services/authorizationService';
 const reducer = combineReducers({
   boats: boatsSlice,
   reservations: reservationsSlice,
   user: userslice,
   boatsId: detailSlice,
-  authorization: authorizationReducer,
+  authorization: authorizationSlice,
 });
 
 const store = configureStore({
