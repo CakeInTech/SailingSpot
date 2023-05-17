@@ -45,8 +45,8 @@ body.dark {
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px;
-  padding: 10px 14px;
+  width: 18.75rem;
+  padding: 0.625rem 0.875rem;
   background: var(--sidebar-color);
   transition: var(--tran-05);
   z-index: 100;
@@ -88,10 +88,10 @@ body.dark {
 }
 
 .sidebar .text {
-  font-size: 17px;
   font-weight: 500;
   white-space: nowrap;
   opacity: 1;
+  font-size: 25px;
 }
 
 .sidebar.close .text {
@@ -102,6 +102,7 @@ body.dark {
 
 .sidebar header {
   position: relative;
+  margin-bottom: 50px;
 }
 
 .sidebar header .image-text {
@@ -219,6 +220,9 @@ body.dark .sidebar li a:hover .text {
 
 .menu-links {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .menu-bar::-webkit-scrollbar {
@@ -297,4 +301,26 @@ body.dark .mode .sun-moon i.moon {
 
 body.dark .switch::before {
   left: 20px;
+}
+
+@media (max-width: 480px) {
+  .menu-links {
+    padding: 5%;
+  }
+
+  .sidebar.close {
+    width: 30px;
+  }
+
+  .sidebar .icon {
+    margin-left: -17px;
+  }
+
+  .sidebar {
+    padding: 3% 2% 3% 0;
+  }
+
+  .sidebar .text {
+    font-size: 20px;
+  }
 }

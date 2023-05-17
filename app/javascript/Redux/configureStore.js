@@ -5,11 +5,14 @@ import reservationsSlice from './Reservations/reservationsReducer';
 import userslice from '../redux/userslice';
 import detailSlice from './Boats/detailSlice';
 import authorizationReducer from './Authorization/authorizationReducer';
+import statusSlice from './Boats/statusSlice';
+
 const reducer = combineReducers({
   boats: boatsSlice,
   reservations: reservationsSlice,
   user: userslice,
   boatsId: detailSlice,
+  statusSlice,
   authorization: authorizationReducer,
 });
 

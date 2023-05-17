@@ -3,11 +3,12 @@ import "@hotwired/turbo-rails";
 import "./controllers";
 import * as bootstrap from "bootstrap";
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { App } from "./components/App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "./scss/index.scss";
 
-ReactDOM.render(
-  <App />, 
-document.getElementById("root"));
+const rootElement = document.getElementById('root');
+
+ReactDOM.createRoot(rootElement).render(<App />);
