@@ -8,7 +8,7 @@ import Details from './Details';
 import Reserve from "./Reserve";
 import MyReservations from "./MyReservations";
 import AddBoat from "./AddBoat";
-import DeleteBoat from "./DeleteBoat";
+import Boats from "./Boats";
 import Login from './user/Login';
 import SignUp from './user/Signup';
 import Welcome from './welcome';
@@ -27,7 +27,7 @@ export const App = () => {
               <Route path="/reserve/:id" element={<Reserve />} />
               <Route path="/my-reservations" element={<MyReservations />} />
               <Route path="/add-boat" element={<AddBoat />} />
-              <Route path="/delete-boat" element={<DeleteBoat />} />
+              <Route path="/delete-boat" element={< Boats/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/welcome" element={<Welcome />}/>

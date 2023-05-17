@@ -26,10 +26,12 @@ class Api::V1::BoatsController < ApplicationController
   end
 
   def update
-    if @boat.update(boat_params)
-      render json: { message: 'Updated' }, status: :ok
+    @boats = Boat.find(params[:id])
+
+    if @boats.update(boat_params)
+      render json: { message: 'Boat updated successfully' }, status: :ok
     else
-      render json: { errors: @boat.errors.full_messages }, status: :unprocessable_entity
+      render json: @boats.errors_full_messages, status: :unprocessable_entity
     end
   end
 

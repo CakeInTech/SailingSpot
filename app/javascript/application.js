@@ -1,4 +1,4 @@
-// Entry point for the build script in your package.json
+// Entry point for the build script in your package.js
 import "@hotwired/turbo-rails";
 import "./controllers";
 import * as bootstrap from "bootstrap";

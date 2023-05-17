@@ -66,7 +66,7 @@ const Details = () => {
                     {user.success && (
                     <div className="boat-row boat-bottom-row">
                       <Link
-                        to={`/reserve/${boatsId.id}`}
+                        to={`/reserve`}
                         className="btn btn-primary"
                       >
                         Reserve
