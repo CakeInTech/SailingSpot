@@ -4,7 +4,7 @@ import boatsSlice from './Boats/boatSlice';
 import reservationsSlice from './Reservations/reservationsReducer';
 import userslice from './userslice';
 import detailSlice from './Boats/detailSlice';
-import authorizationReducer from './Authorization/authorizationReducer';
+import authorizationReducer from './Services/authorizationService';
 const reducer = combineReducers({
   boats: boatsSlice,
   reservations: reservationsSlice,
