@@ -21,14 +21,14 @@ const Sidebar = () => {
       sidebar.classList.toggle("close");
     });
   }, [dispatch]);
-  const handleLogout = async () => {
+  const handleLogout = async (thunkAPI) => {
     try {
       await fetch("/logout", { method: "DELETE" });
       dispatch(logout());
       window.location.reload();
       navigate("/");
     } catch (error) {
-      console.log(error);
+       return thunkAPI.rejectWithValue(error.response.data)
     }
   };
   const isAuthorized = (resource_name, perform_action) => {

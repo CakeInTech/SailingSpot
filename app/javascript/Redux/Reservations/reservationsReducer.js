@@ -6,13 +6,21 @@ const initialState = {
   status: 'idle',
   error: null,
 };
+const baseUrl = `/api/v1`
 
-export const getReservations = createAsyncThunk('sailspot/reservations', async (user_id) => {
-  const response = await axios.get(`/api/v1/users/${user_id}/reservations`);
-  if (response.data) {
-    return response.data;
+export const getReservations = createAsyncThunk('sailspot/reservations', async (thunkAPI) => {
+   (baseUrl, "ORIGIN PATH HERE!!!")
+  try {
+     const response = await axios.get(`${baseUrl}/reservations`, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+     });
+      ("here is the api response",response)
+     return response.data;
+  } catch (e){
+     return thunkAPI.rejectWithValue(e.response.data)
   }
-  return [];
 });
 
 const reservationsSlice = createSlice({

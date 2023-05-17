@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch} from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../scss/signup.scss';
-import { registerUser } from '../../redux/userslice'
+import { registerUser } from '../../Redux/userslice'
 
 const SignUp = () => {
   const navigate = useNavigate();

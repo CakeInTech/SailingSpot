@@ -10,7 +10,6 @@ const MyReservations = () => {
     (state) => state.reservations
   );
 
-  console.log(reservations, status)
   useEffect(() => {
     dispatch(getReservations(1));
   }, [dispatch]);
@@ -23,7 +22,7 @@ const MyReservations = () => {
     <section className="reservation my-4 mx-auto">
       <h1 className="reserveHeader text-center">My Reservation</h1>
       <div className="row">
-        {reservations?.map((reservation) => (
+        {reservations && reservations.map((reservation) => (
           <div className="col-md-6 col-lg-4 mb-3" key={reservation.id}>
             <div className="card">
               <img

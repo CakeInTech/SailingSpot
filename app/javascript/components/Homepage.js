@@ -10,7 +10,6 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const boats = useSelector(allBoats)
   const status = useSelector(allStatus)
-  console.log("here we gooo", boats, status);
 
   useEffect(() => {
     dispatch(fetchBoatData());

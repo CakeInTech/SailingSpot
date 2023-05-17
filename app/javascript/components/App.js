@@ -24,7 +24,7 @@ export const App = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/details/:id" element={<Details />}/>
-              <Route path="/reserve/:id" element={<Reserve />} />
+              <Route path="/reserve" element={<Reserve />} />
               <Route path="/my-reservations" element={<MyReservations />} />
               <Route path="/add-boat" element={<AddBoat />} />
               <Route path="/delete-boat" element={< Boats/>} />

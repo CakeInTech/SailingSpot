@@ -1,54 +1,44 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  added: false,
-  error: '',
+  status: null,
 };
 
-const ADD_RESERVATION_SUCCESS = 'ADD_RESERVATION_SUCCESS';
-const ADD_RESERVATION_FAILURE = 'ADD_RESERVATION_FAILURE';
+const baseUrl = `${window.location.origin}/api/v1`;
 
-const addReservationSuccess = () => ({
-  type: ADD_RESERVATION_SUCCESS,
-});
-
-const addReservationFailure = (error) => ({
-  type: ADD_RESERVATION_FAILURE,
-  error,
-});
-
-const addReservationReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_RESERVATION_SUCCESS:
-      return {
-        ...state,
-        added: true,
-      };
-    case ADD_RESERVATION_FAILURE:
-      return {
-        ...state,
-        added: false,
-        error: action.error.message,
-      };
-    default:
-      return state;
-  }
-};
-
-export const addReservation = (user_id, reservation) => async (dispatch) => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
+export const reserveBoat = createAsyncThunk(
+  'reservations/reserveBoat', async (payload, thunkAPI) => {
+    try {
+      const response = await axios.post(`${baseUrl}/reservations`, {
+        reservation: payload,
+      },);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
     }
-  };
-  const body = JSON.stringify(reservation);
-  await axios.post(`/api/v1/users/${user_id}/reservations`, body, config)
-    .then(() => {
-      dispatch(addReservationSuccess());
-    })
-    .catch((error) => {
-      dispatch(addReservationFailure(error.message));
-    });
-};
+  }
+);
 
-export default addReservationReducer;
+const reservationReducer = createSlice({
+  name: 'addReservation',
+  initialState,
+  reducers: {},
+  extraReducers(builder) {
+    builder
+    .addCase(reserveBoat.pending, (state) => ({
+      ...state,
+      status: 'pending',
+    }))
+    .addCase(reserveBoat.fulfilled, (state) => ({
+      ...state,
+      status: 'fulfilled',
+    }))
+    .addCase(reserveBoat.rejected, (state) => ({
+      ...state,
+      status: 'rejected',
+    }))
+  }
+})
+
+export default reservationReducer.reducer;

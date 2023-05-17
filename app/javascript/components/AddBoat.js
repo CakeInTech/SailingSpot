@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addBoat } from "../Redux/Boats/addBoat";
+import { useNavigate } from "react-router-dom";
+import { createBoat } from "../Redux/Boats/addBoat";
 
 const AddBoat = () => {
   const { user } = useSelector((state) => state.user);
@@ -11,12 +12,13 @@ const AddBoat = () => {
   const [model, setModel] = useState("");
   const [availability, setAvailability] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() && description.trim() && photo.trim() && price.trim() && model.trim() && availability) {
       dispatch(
-        addBoat({
+        createBoat({
           "name": name,
           "description": description,
           "photo": photo,
@@ -32,6 +34,7 @@ const AddBoat = () => {
       setPrice("");
       setModel("");
       setAvailability("");
+      navigate("/")
     }
   };
   return (
