@@ -128,8 +128,8 @@ const AddBoat = () => {
             value={availability}
             onChange={(e) => setAvailability(e.target.value)}
           />
-          <label class="form-check-label" for="flexRadioDefault1">
-            Availble
+          <label class="form-check-label" for="availability">
+            Available
           </label>
         </div>
         <div class="form-check">
