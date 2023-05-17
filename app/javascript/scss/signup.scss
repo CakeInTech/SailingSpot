@@ -74,7 +74,7 @@
   text-decoration: none;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 480px) {
   /* Styles for desktop screens */
   .signup-container {
     display: flex;
@@ -88,7 +88,7 @@
     height: 79%;
     padding-top: 30px;
     padding-bottom: 30px;
-    max-width: 540px;
-    margin: 15% auto;
+    max-width: 500px;
+    margin: 5% auto;
   }
 }
