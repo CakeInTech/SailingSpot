@@ -31,7 +31,6 @@
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [❓ FAQ (OPTIONAL) ](#-faq-optional-)
   - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
@@ -77,9 +76,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **[Boats]**
+- **[reservations]**
+- **[Users]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,13 +130,6 @@ To run the project, execute the following command:
   ./bin/dev
 ```
 
-or
-
-```sh
-  rails assets:precompile
-  rails server
-```
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -175,9 +167,7 @@ or
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[Improve the application UI]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -196,7 +186,7 @@ Feel free to check the [issues page](../../issues/).
 ## ⭐️ Show your support <a name="support"></a>
 
 
-If you like this project...
+If you like this project then please give a ⭐️ and also share your feeback using github issues.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -204,22 +194,10 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank...
+- ❤️ [Murat Korkmaz](https://www.behance.net/muratk)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
