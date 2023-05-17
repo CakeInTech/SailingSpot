@@ -38,7 +38,7 @@
 # 📖 [Sailing_Spot] <a name="about-project"></a>
 
 
-**[Sailing_Spot]** is a...
+**[Sailing_Spot]** is a full-stack web application that enables users to reserve boats. The application was developed using the Ruby on Rails framework for the back-end, and React for the front-end. With this application, users can easily browse available boats, select a desired boat, and reserve it for a specified period of time. The application offers a user-friendly and intuitive interface, making the process of reserving a boat easy and straightforward.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -204,7 +204,5 @@ If you like this project then please give a ⭐️ and also share your feeback u
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
