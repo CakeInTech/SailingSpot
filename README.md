@@ -100,12 +100,52 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+  1. Before you go ahead with this project, please make sure you have:
+    - Basic understanding of HTML and CSS.
+    - JavaScript fundamentals (object, array, conditionals etc).
+    - Familiarity with JavaScript ES6 features (class syntax, arrow functions, object destructuring etc).
+    - Basic understanding of basic Ruby concepts.
+    - Ruby fundamentals (classes, modules, blocks, etc).
+
+
+  2. Make sure you have Ruby installed in your system. You can install it [here](https://www.ruby-lang.org/en/documentation/installation/)
+
+  3. Get started with [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html).
+
+  4. Make sure you have [PostgreSQL](https://www.postgresql.org/) installed and running.
+
+  5. [Node and npm](https://nodejs.org/en/download/) are installed. Here are the versions I'll be using while making this tutorial:
+
+    ```shell
+    $ node --version
+    v16.13.2
+    $ npm --version
+    8.1.2
+    $ yarn --version
+    1.22
+    ```
+    > Installing npm adds two commands to the system—`npm` and `npx`—both of which I'll be using while making this tutorial.
+
+  6. [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is installed. Here's the version I'll be using while making this tutorial:
+
+    ```shell
+    $ git --version
+    git version 2.29.1.windows.1
+    ```
+
+  7. A [GitHub](https://github.com/signup) account. :octocat:
+
+  8. [Ruby](https://rubyinstaller.org/downloads/) are installed. Here are the versions I'll be using while making this tutorial:
+
+    ```shell
+    $ ruby --version
+    ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x64-mingw-ucrt]
+    ```
+    > Installing ruby add the command to the system—`irb` which we'll be using while making this tutorial.
 
 ### Setup
 
 Clone this repository to your desired folder:
-
 
 ```sh
   cd my-folder
