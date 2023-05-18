@@ -122,13 +122,12 @@ Install this project with:
   yarn install
 ```
 
-### Usage
-
-To run the project, execute the following command:
-
-```sh
-  ./bin/dev
-```
+### Run
+  *  Change/include `host, username, password` according to your database server.
+  *  Run `rails db:create` and `rails db:migrate`
+  *  Run `rails db:seed` to enter some data into database.
+  *  Run `./bin/dev` to start the server.
+  *  In your browser, go to `http://localhost:3000`.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
