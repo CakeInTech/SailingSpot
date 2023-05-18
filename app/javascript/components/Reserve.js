@@ -49,7 +49,7 @@ const Reserve = () => {
               className="form-control form-input"
               id="username"
               name="username"
-              value={user.name}
+              defaultValue={user.name}
               required
             />
             <div className="valid-feedback">Valid.</div>
