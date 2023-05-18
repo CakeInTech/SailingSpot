@@ -199,15 +199,15 @@ Install this project with:
 
 👤 **Newton Alumasa**
 
-- [altontonn](https://github.com/altontonn/)
-- [AlumasaNewton](https://twitter.com/AlumasaNewton)
-- [newton-alumasa](https://www.linkedin.com/in/newton-alumasa/)
+- GitHub: [altontonn](https://github.com/altontonn/)
+- LinkedIn: [newton-alumasa](https://www.linkedin.com/in/newton-alumasa/)
+- Twitter: [AlumasaNewton](https://twitter.com/AlumasaNewton)
 
 👤 **Chimezie Asouzu**
 
 - GitHub: [@Shegy28](https://github.com/shegy28)
-- Twitter: [@Shegy28](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/chimezie-asouzu-67704224a/)
+- Twitter: [@Shegy28](https://twitter.com/twitterhandle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
