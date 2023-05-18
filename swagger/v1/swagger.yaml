@@ -42,34 +42,6 @@ paths:
           description: Bad Request
         '404':
           description: User not found
-    post:
-      summary: Create new user
-      tags:
-        - user
-      consumes: application/json
-      produces: application/json
-      parameters: []
-      responses:
-        '200': {
-          description: User created successfully!,
-          headers: {},
-          schema: {
-            $ref: "#/definitions/User"
-          }
-        }
-        '400':
-          description: Bad Request
-        '404':
-          description: User not found
-      requestBody:
-        content:
-          application/json:
-            schema: {
-              type: object,
-              properties: {
-                name: { type: string },
-              }
-            }
   "/api/v1/boats":
     get: 
       summary: Retrieves a list of all boats
@@ -216,17 +188,13 @@ paths:
           '404':
             description: Boat not found
   
-  "/api/v1/users/{user_id}/reservations":
+  "/api/v1/reservations":
     get:
       summary: Retrieves a list of reservations of a user
       tags:
         - reservation
       produces: application/json
-      parameters:
-      - name: user_id
-        in: path
-        required: true
-        type: integer
+      parameters: []
       responses:
         '200': {
           description: Reservations retrieved successfully!,
@@ -244,15 +212,7 @@ paths:
         - reservation
       consumes: application/json
       produces: application/json
-      parameters:
-        [
-          {
-            name: user_id,
-            in: path,
-            required: true,
-            type: integer,
-          },
-        ]
+      parameters: []
       responses:
         '200': {
           description: Reservation created successfully!,
@@ -277,164 +237,50 @@ paths:
                 boat_id: { type: integer },
               }
             }
-  "/api/v1/users/{user_id}/reservations/{id}":
-    get:
-      summary: Retrieves selected reservation 
-      tags:
-        - reservation
+ 
+  "/signup": 
+    post: 
+      summary: "Register new user"
+      tags: 
+      - user
+      description: ""
+      consumes: application/json
       produces: application/json
-      parameters:
-        [
-          {
-            name: user_id,
-            in: path,
-            required: true,
-            type: integer,
-          },
-          {
-            name: id,
-            in: path,
-            required: true,
-            type: integer,
-          },
-        ]
+      parameters: []
       responses:
         '200': {
-          description: Reservation retrieved successfully!,
+          description: User created successfully!,
           schema: {
-            $ref: "#/definitions/Reservation"
+            $ref: "#/definitions/User"
           }
         }
         '400':
           description: Bad Request
         '404':
-          description: Reservation not found
-    put:
-      summary: Update selected reservation
-      tags:
-        - reservation
-      produces: application/json
-      parameters:
-        [
-          {
-            name: user_id,
-            in: path,
-            required: true,
-            type: integer,
-          },
-          {
-            name: id,
-            in: path,
-            required: true,
-            type: integer,
-          },
-        ]
-      responses:
-        '200': {
-          description: Reservation updated  successfully!,
-          schema: {
-            $ref: "#/definitions/Reservation"
-          }
-        }
-        '400':
-          description: Bad Request
-        '404':
-          description: Reservation not found
+          description: User not found
       requestBody:
         content:
           application/json:
             schema: {
               type: object,
               properties: {
-                city: { type: string },
-                pick_up: { type: string, format: date_time },
-                return_date: { type: string, format: date_time },
-                user_id: { type: integer },
-                boat_id: { type: integer },
+                name: { type: string }, 
+                email: {type: string},
+                password: {type: string},
+                password_confirmation: {type: string}
               }
             }
-    delete:
-      summary: Delete selected reservation
-      tags:
-        - reservation
-      produces: application/json
-      parameters:
-        [
-          {
-            name: user_id,
-            in: path,
-            required: true,
-            type: integer,
-          },
-          {
-            name: id,
-            in: path,
-            required: true,
-            type: integer,
-          },
-        ]
-      responses:
-        '200': {
-          description: Reservation deleted successfully!,
-          schema: {
-            $ref: "#/definitions/Reservation"
-          }
-        }
-        '400':
-          description: Bad Request
-        '404':
-          description: Reservation not found
-  "/api/v1/user/login": 
-    get: 
-      tags: 
-      - user
-      summary: "Logs user into the system"
-      description: ""
-      produces: application/json
-      parameters: [
-        {
-          name: "username",
-          in: "query",
-          description: "The user name for login",
-          required: true,
-          type: string
-        },
-        {
-          name: password,
-          in: query,
-          description: "The password for login in clear text",
-          required: true,
-          type: string
-        }
-      ]
-      responses: 
-      "200": {
-        description: "successful operation",
-        schema: {
-          type: "string"
-        }
-      }
-      "400": 
-        description: "Invalid username/password supplied"
 
-  "/api/v1/user/logout": 
-    get: 
-      tags: 
-      - user
-      summary: "Logs out current logged in user session"
-      description: ""
-      produces: application/json
-      parameters: []
-      responses: 
-        default: 
-          description: "successful operation"
-        
 definitions:
   {
     User:
       {
         type: object,
-        properties: { id: { type: integer }, name: { type: string } },
+        properties: { 
+          id: { type: integer }, 
+          name: { type: string }, 
+          email: {type: string}
+        },
         xml: {
           name: "User"
         }
