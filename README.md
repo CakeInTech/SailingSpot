@@ -129,6 +129,14 @@ Install this project with:
   *  Run `./bin/dev` to start the server.
   *  In your browser, go to `http://localhost:3000`.
 
+### Test
+  * Run `gem install rspec` to install Rspec,
+  * Run `rspec spec` to run all the test cases, and
+  * Run `rspec spec/models` to run test cases for `models`.
+  * Run `rspec spec/requests` to run test cases for `controllers`.
+  * Run `rspec spec/features` to run test cases for `views`.
+  * Run `rspec spec/intergration` to run test cases for `swagger api endpoint`.
+  * Run `rspec spec/filepath/filename.rb` to run test cases individually.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
