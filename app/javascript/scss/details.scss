@@ -19,13 +19,14 @@
 .boat-details {
   display: flex;
   flex-direction: column;
-  height: 31.25rem;
+  height: auto;
 }
 
 .boat-row {
   display: flex;
   align-items: center;
   margin-bottom: 0.625rem;
+  flex-wrap: wrap;
 
   .boat-label {
     color: #999;
