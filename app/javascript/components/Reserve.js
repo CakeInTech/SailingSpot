@@ -42,6 +42,20 @@ const Reserve = () => {
         Book a Test Ride
       </h1>
       <form className="w-50 mx-auto was-validated" onSubmit={handleSubmit}>
+        <div className="form-group m-4">
+            <label htmlFor="pick-up">Username</label>
+            <input
+              type="text"
+              className="form-control form-input"
+              id="username"
+              name="username"
+              
+              required
+            />
+            <div className="valid-feedback">Valid.</div>
+            <div className="invalid-feedback">Please fill out this field.</div>
+        </div>
+
         <div className="form-group">
           <label htmlFor="boat">Select a boat</label>
           <select
