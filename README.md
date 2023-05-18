@@ -217,6 +217,15 @@ Install this project with:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Kanban Board -->
+
+## 👥 Kanban Board <a name="authors"></a>
+- Link to Kanban Board: [Kanban](https://github.com/users/CakeInTech/projects/2)
+- Initial state of Kanban board: [Kanban Image](https://user-images.githubusercontent.com/69153321/236253159-78fc89e7-32f0-481e-9111-96d1876f9e77.png) 
+- We are a team of 4 persons.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
