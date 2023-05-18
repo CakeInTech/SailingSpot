@@ -6,64 +6,19 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
-
-# Loop through the names array and create a new user record for each name
-names.each { |name| User.create(name: name) }
-Reservation.create(city: 'Nairobi')
-Reservation.create(pick_up: '2023-04-14')
-Reservation.create(return_date: '2023-04-16')
-Reservation.create(user_id: 1)
-Reservation.create(user_id: 1)
-
-boats = [
-  {
-    name: 'Sail Away',
-    description: 'Spacious 30 foot catamaran',
-    model: 'Sunreef 80',
-    price: 250,
-    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
-    availability: true,
-    user_id: 1
-  },
-  {
-    name: 'High Seas 2',
-    description: 'Luxury motor yacht',
-    model: 'Prestige 650',
-    price: 1200,
-    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
-    availability: true,
-    user_id: 1
-  },
-  {
-   name: 'Island Cat',
-   description: '24 foot catamaran',
-   model: 'Pattaras 240',
-   price: 180,
-   photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
-   availability: true,
-   user_id: 1
-  },
-  {
-    name: 'Eco Glide',
-    description: 'Electric power boat',
-    model: 'Duffy 28 EV',
-    price: 320,
-    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
-    availability: true,
-    user_id: 1
-  },
-  {
-    name: 'Sea Legz II',
-    description: '35 foot sailboat',
-    model: 'Catalina 360',
-    price: 520,
-    photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
-    availability: false,
-    user_id: 1
-  }
-]
-
-boats.each do |boat|
-  Boat.create!(boat)
-end
+# Users
+admin = User.create(name: 'Admin', email: 'admin@gmail.com', password: '123456', role: 'admin')
+user = User.create(name: 'User', email: 'user@gmail.com', password: '123456', role: 'user')
+# Boats
+boat1 = Boat.create(name: 'Sail Away', description: 'Spacious 30 foot catamaran',  model: 'Sunreef 80', price: 250,
+  photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
+  availability: true, user: admin)
+boat2 = Boat.create(name: 'High Seas 2', description: 'Spacious 30 foot catamaran',  model: 'Prestige 180', price: 180,
+  photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
+  availability: true, user: admin)
+boat3 = Boat.create(name: 'Island Cat', description: 'Spacious 30 foot catamaran',  model: 'Sunreef 480', price: 210,
+  photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
+  availability: true, user: admin)
+# Reservations
+Reservation.create(city: 'Nairobi', pick_up: '2023-04-14', return_date: '2023-04-16', user: user, boat: boat1)
+Reservation.create(city: 'Nairobi', pick_up: '2023-04-14', return_date: '2023-04-16', user: user, boat: boat2)
