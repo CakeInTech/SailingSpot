@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'SailingSpot API', type: :request, swagger_doc: 'v1/swagger.yaml' do
-  let(:user) { User.create(name: 'test') }
+  let(:user) { User.create(name: 'test', email: 'test@gmail.com', password: 'password', role: 'admin') }
 
   path '/api/v1/boats' do
     get 'Retrieve a list of all boats' do

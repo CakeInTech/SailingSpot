@@ -1,5 +1,5 @@
 class Api::V1::BoatsController < ApplicationController
-  before_action :set_boat, only: %i[show update]
+  before_action :set_boat, only: %i[show update destroy]
 
   def index
     boats = Boat.all
@@ -16,7 +16,6 @@ class Api::V1::BoatsController < ApplicationController
 
   def create
     boat = Boat.new(boat_params)
-    boat.user_id = current_user.id
 
     if boat.save
       render json: { message: 'Boat created successfully!' }, status: :created
