@@ -152,9 +152,9 @@ Install this project with:
 
 👤 **Md Tariq-ul Islam**
 
-- [GitHub](https://github.com/developertariq)
-- [Twitter](https://twitter.com/developer_tariq)
-- [LinkedIn](https://www.linkedin.com/in/developer-tariq/)
+- GitHub: [@developertariq](https://github.com/developertariq)
+- LinkedIn: [@developer-tariq](www.linkedin.com/in/developer-tariq)
+- Twitter: [@developer_tariq](https://twitter.com/developer_tariq)
 
 👤 **Newton Alumasa**
 
