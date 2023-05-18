@@ -25,6 +25,7 @@ const Login = () => {
       })
       ).then(() => {
         navigate('/');
+        window.location.reload();
       }).catch(error => {
         const err = 'Email or Password not correct';
         setErrorMessage(err);
