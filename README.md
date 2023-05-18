@@ -27,6 +27,7 @@
     - [Install](#install)
     - [Run](#run)
     - [Test](#test)
+    - [Usage](#usage)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -178,6 +179,11 @@ Install this project with:
   * Run `rspec spec/features` to run test cases for `views`.
   * Run `rspec spec/intergration` to run test cases for `swagger api endpoint`.
   * Run `rspec spec/filepath/filename.rb` to run test cases individually.
+
+### Usage
+  * To run and test as admin use the `email: admin@gmail.com` and `password: 123456`
+  * To run and test as user use the `email: user@gmail.com` and `password: 123456`
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
