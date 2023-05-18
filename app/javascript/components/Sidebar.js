@@ -26,7 +26,7 @@ const Sidebar = () => {
       await fetch("/logout", { method: "DELETE" });
       dispatch(logout());
       window.location.reload();
-      navigate("/");
+      navigate("/login");
     } catch (error) {
        return thunkAPI.rejectWithValue(error.response.data)
     }
