@@ -6,10 +6,11 @@ import { userSelector } from "../Redux/userslice";
 import { allBoats, fetchBoatData } from "../Redux/Boats/boatSlice";
 
 const Reserve = () => {
+  const [username, setUsername] = useState("")
   const [city, setCity] = useState("")
   const [boat, setBoat] = useState();
-  const [pick_up, setPick_up] = useState(null);
-  const [return_date, setReturn_date] = useState(null);
+  const [pick_up, setPick_up] = useState("");
+  const [return_date, setReturn_date] = useState("");
   const dispatch = useDispatch();
 
   const { boats } = useSelector(allBoats);
@@ -42,6 +43,21 @@ const Reserve = () => {
         Book a Test Ride
       </h1>
       <form className="w-50 mx-auto was-validated" onSubmit={handleSubmit}>
+        <div className="form-group m-4">
+            <label htmlFor="pick-up">Username</label>
+            <input
+              type="text"
+              className="form-control form-input"
+              id="username"
+              name="username"
+              value={user.name ?? ''}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <div className="valid-feedback">Valid.</div>
+            <div className="invalid-feedback">Please fill out this field.</div>
+        </div>
+
         <div className="form-group">
           <label htmlFor="boat">Select a boat</label>
           <select
