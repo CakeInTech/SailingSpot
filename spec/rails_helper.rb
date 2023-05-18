@@ -2,8 +2,10 @@
 require 'active_record'
 require 'spec_helper'
 require 'shoulda/matchers'
+require 'devise'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
+require 'capybara/rspec'
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
@@ -67,10 +69,11 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
-  # config.include Devise::Test::ControllerHelpers, type: :controller
-  # config.include Devise::Test::IntegrationHelpers, type: :feature
-  # config.include Devise::Test::IntegrationHelpers, type: :requests
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :requests
   config.include Capybara::DSL
   config.include ActionView::Helpers::NumberHelper
 end
+
 Capybara.default_driver = :selenium_chrome
