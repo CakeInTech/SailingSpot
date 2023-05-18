@@ -65,6 +65,9 @@ group :development, :test do
   gem 'rswag-specs'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.3'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'shoulda'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -80,4 +83,3 @@ end
 
 gem 'active_model_serializers', '~> 0.10.13'
 gem 'cancancan'
-gem 'factory_bot_rails', '~> 6.2'
