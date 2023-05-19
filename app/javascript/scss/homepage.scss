@@ -1,0 +1,134 @@
+.main-container {
+  padding: 0 2rem;
+}
+
+.home {
+  position: absolute;
+  top: 0;
+  left: 250px;
+  height: 100vh;
+  width: calc(100% - 250px);
+  transition: var(--tran-05);
+  background: white;
+}
+
+.home .text {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 12px 60px;
+}
+
+.sidebar.close ~ .home {
+  left: 78px;
+  height: 100vh;
+  width: calc(100% - 78px);
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.sub-header {
+  font-size: 1rem;
+  color: rgb(189, 188, 188);
+  margin-bottom: 2rem;
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgb(189, 188, 188);
+  z-index: -1;
+}
+
+.doctors-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  margin-bottom: 2rem;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.card-img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+  .main-container {
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main-container {
+    padding: 0 4rem;
+  }
+
+  .card {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .main-container {
+    padding: 0 6rem;
+  }
+}
