@@ -35,6 +35,7 @@ const Reserve = () => {
     };
     dispatch(reserveBoat(reservation));
     navigate("/my-reservations");
+    window.location.reload();
   };
 
   return (
