@@ -12,13 +12,13 @@ user = User.create(name: 'User', email: 'user@gmail.com', password: '123456', ro
 # Boats
 boat1 = Boat.create(name: 'Sail Away', description: 'Spacious 30 foot catamaran',  model: 'Sunreef 80', price: 250,
   photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
-  availability: true, user: admin)
+  availability: true, user_id: admin.id)
 boat2 = Boat.create(name: 'High Seas 2', description: 'Spacious 30 foot catamaran',  model: 'Prestige 180', price: 180,
   photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
-  availability: true, user: admin)
+  availability: true, user_id: admin.id)
 boat3 = Boat.create(name: 'Island Cat', description: 'Spacious 30 foot catamaran',  model: 'Sunreef 480', price: 210,
   photo: 'https://res.cloudinary.com/do4vatowz/image/upload/v1684164236/pngimg.com_-_boat_PNG36_o5nhnz.png',
-  availability: true, user: admin)
+  availability: true, user_id: admin.id)
 # Reservations
-Reservation.create(city: 'Nairobi', pick_up: '2023-04-14', return_date: '2023-04-16', user: user, boat: boat1)
-Reservation.create(city: 'Nairobi', pick_up: '2023-04-14', return_date: '2023-04-16', user: user, boat: boat2)
+Reservation.create(city: 'Nairobi', pick_up: '2023-04-14', return_date: '2023-04-16', user_id: user.id, boat_id: boat1.id)
+Reservation.create(city: 'Nairobi', pick_up: '2023-04-14', return_date: '2023-04-16', user_id: user.id, boat_id: boat2.id)
